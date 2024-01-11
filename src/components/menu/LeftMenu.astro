@@ -1,0 +1,24 @@
+---
+import SideMenuItem from './SideMenuItem.astro'
+import ExpenseIcon from '../../icons/Expense.astro'
+import LoanIcon from '../../icons/Loan.astro'
+import AsideMenuTemplate from './AsideMenuTemplate.astro'
+import HomeIcon from '../../icons/Home.astro'
+---
+
+<AsideMenuTemplate>
+	<ul>
+        <SideMenuItem href='/#'>
+			<HomeIcon />
+			<span>Home</span>
+		</SideMenuItem>
+		<SideMenuItem href='/expenses'>
+			<ExpenseIcon />
+			<span>Expenses</span>
+		</SideMenuItem>
+		<SideMenuItem href='#'>
+			<LoanIcon />
+			<span>Loans</span>
+		</SideMenuItem>
+	</ul>
+</AsideMenuTemplate>

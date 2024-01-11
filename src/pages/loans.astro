@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro'
+import TableHead from '../components/table/Head.astro'
+import ExpenseRow from '../components/table/Expense.astro'
+---
+
+<Layout title="Expense Tracker">
+	<table class="mt-1 w-[620px] table-fixed rounded-lg text-left text-sm shadow-lg">
+		<TableHead />
+		<tbody>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'ENTERTAINMENT'.toUpperCase()}
+			/>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'FOOD'.toUpperCase()}
+			/>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'HEALTH'.toUpperCase()}
+			/>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'TRANSPORTATION'.toUpperCase()}
+			/>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'TRANSPORTATION'.toUpperCase()}
+			/>
+			<ExpenseRow
+        
+				date={new Date()}
+				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+				amount={699.99}
+				category={'TRANSPORTATION'.toUpperCase()}
+			/>
+		</tbody>
+	</table>
+</Layout>
+
+<style></style>

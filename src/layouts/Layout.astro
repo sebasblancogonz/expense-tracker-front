@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro'
-import AsideMenu from '../components/AsideMenu.astro'
-
+import AsideMenuTemplate from '../components/menu/AsideMenuTemplate.astro'
+import LeftMenu from '../components/menu/LeftMenu.astro'
 interface Props {
 	title: string
 }
@@ -23,12 +23,12 @@ const { title } = Astro.props
 		<div id="app" class="relative h-screen gap-2">
 			<Header />
 			<aside class="mt-10 flex flex-col [grid-area:aside-l]">
-				<AsideMenu />
+				<LeftMenu />
 			</aside>
 			<main class="mt-9 bg-white [grid-area:main] dark:bg-slate-800">
 				<slot />
 			</main>
-			<aside class="mt-9 bg-teal-900 [grid-area:aside-r]">ASIDE RIGHT</aside>
+			<aside class="mt-9 flex flex-col [grid-area:aside-r]"><AsideMenuTemplate /></aside>
 		</div>
 	</body>
 </html>
