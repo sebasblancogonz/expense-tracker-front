@@ -4,8 +4,9 @@ import ExpenseIcon from '../../icons/Expense.astro'
 import LoanIcon from '../../icons/Loan.astro'
 import AsideMenuTemplate from './AsideMenuTemplate.astro'
 import HomeIcon from '../../icons/Home.astro'
+import ThemeIcon from '../ThemeIcon.astro'
 ---
-
+<aside class="flex flex-col [grid-area:aside-l]">
 <AsideMenuTemplate>
 	<ul>
         <SideMenuItem href='/#'>
@@ -16,9 +17,10 @@ import HomeIcon from '../../icons/Home.astro'
 			<ExpenseIcon />
 			<span>Expenses</span>
 		</SideMenuItem>
-		<SideMenuItem href='#'>
+		<SideMenuItem href='/loans'>
 			<LoanIcon />
 			<span>Loans</span>
 		</SideMenuItem>
 	</ul>
 </AsideMenuTemplate>
+</aside>

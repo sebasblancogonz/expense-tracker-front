@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro'
 import AsideMenuTemplate from '../components/menu/AsideMenuTemplate.astro'
 import LeftMenu from '../components/menu/LeftMenu.astro'
+import RightMenu from '../components/menu/RightMenu.astro'
 interface Props {
 	title: string
 }
@@ -21,24 +22,21 @@ const { title } = Astro.props
 	</head>
 	<body class="dark:bg-slate-800">
 		<div id="app" class="relative h-screen gap-2">
-			<Header />
-			<aside class="mt-10 flex flex-col [grid-area:aside-l]">
-				<LeftMenu />
-			</aside>
-			<main class="mt-9 bg-white [grid-area:main] dark:bg-slate-800">
-				<slot />
-			</main>
-			<aside class="mt-9 flex flex-col [grid-area:aside-r]"><AsideMenuTemplate /></aside>
+			<LeftMenu />
+
+			<slot />
+			
+			<RightMenu
 		</div>
 	</body>
 </html>
+
 <style>
 	#app {
 		display: grid;
 		grid-template-areas:
-			'header header header'
 			'aside-l main aside-r';
-		grid-template-columns: 1fr 620px 1fr;
+		grid-template-columns: 1fr 2fr 1fr;
 	}
 </style>
 <style is:global>

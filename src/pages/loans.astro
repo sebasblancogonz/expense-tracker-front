@@ -2,56 +2,49 @@
 import Layout from '../layouts/Layout.astro'
 import TableHead from '../components/table/Head.astro'
 import ExpenseRow from '../components/table/Expense.astro'
+import LoanRow from '../components/table/Loan.astro'
 ---
 
 <Layout title="Expense Tracker">
-	<table class="mt-1 w-[620px] table-fixed rounded-lg text-left text-sm shadow-lg">
-		<TableHead />
-		<tbody>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'ENTERTAINMENT'.toUpperCase()}
-			/>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'FOOD'.toUpperCase()}
-			/>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'HEALTH'.toUpperCase()}
-			/>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-			<ExpenseRow
-        
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-		</tbody>
-	</table>
+	<main class="mt-9 w-full bg-white [grid-area:main] dark:bg-slate-800">
+		<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
+			<TableHead isLoan={true} />
+			<tbody>
+				<LoanRow
+					startDate={new Date()}
+					finishDate={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					interest={7.5}
+					bank={'BBVA'.toUpperCase()}
+				/>
+				<LoanRow
+					startDate={new Date()}
+					finishDate={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					interest={7.5}
+					bank={'BBVA'.toUpperCase()}
+				/>
+				<LoanRow
+					startDate={new Date()}
+					finishDate={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					interest={7.5}
+					bank={'BBVA'.toUpperCase()}
+				/>
+				<LoanRow
+					startDate={new Date()}
+					finishDate={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					interest={7.5}
+					bank={'BBVA'.toUpperCase()}
+				/>
+			</tbody>
+		</table>
+	</main>
 </Layout>
 
 <style></style>

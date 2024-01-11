@@ -1,51 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import HeadComponent from '../components/table/Head.astro'
-import RowComponent from '../components/table/Expense.astro'
+import ExpenseRow from '../components/table/Expense.astro'
 ---
 
 <Layout title="Expense Tracker">
-	<table class="mt-1 w-[620px] table-fixed rounded-lg text-left text-sm shadow-lg">
-		<HeadComponent />
-		<tbody>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'ENTERTAINMENT'.toUpperCase()}
-			/>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'FOOD'.toUpperCase()}
-			/>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'HEALTH'.toUpperCase()}
-			/>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-			<RowComponent
-				date={new Date()}
-				description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-				amount={699.99}
-				category={'TRANSPORTATION'.toUpperCase()}
-			/>
-		</tbody>
-	</table>
+	<main class="mt-9 w-full bg-white [grid-area:main] dark:bg-slate-800">
+		<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
+			<HeadComponent isLoan={false}/>
+			<tbody>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'ENTERTAINMENT'.toUpperCase()}
+				/>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'FOOD'.toUpperCase()}
+				/>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'HEALTH'.toUpperCase()}
+				/>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'TRANSPORTATION'.toUpperCase()}
+				/>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'TRANSPORTATION'.toUpperCase()}
+				/>
+				<ExpenseRow
+					date={new Date()}
+					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
+					amount={699.99}
+					category={'TRANSPORTATION'.toUpperCase()}
+				/>
+			</tbody>
+		</table>
+	</main>
 </Layout>
 
 <style></style>
