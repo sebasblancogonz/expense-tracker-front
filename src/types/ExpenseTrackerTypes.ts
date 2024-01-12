@@ -8,11 +8,18 @@ export interface Installment {
 }
 
 export interface Loan {
-    startDate: Date
+	startDate: Date
 	finishDate: Date
 	description: string
 	amount: number
 	interest: number
 	bank?: string
 	installments?: Installment[]
+}
+
+export interface Expense {
+	date: Date
+	description: string
+	amount: Number
+	category: string
 }

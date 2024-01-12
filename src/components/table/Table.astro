@@ -1,0 +1,18 @@
+---
+import TableHead from "./head/Head.astro"
+
+interface Props {
+    isLoan: boolean
+}
+
+const  { isLoan } = Astro.props
+
+---
+<main class="mt-9 w-full bg-white [grid-area:main] dark:bg-slate-800">
+	<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
+		<TableHead isLoan={isLoan} />
+		<tbody>
+			<slot />
+		</tbody>
+	</table>
+</main>

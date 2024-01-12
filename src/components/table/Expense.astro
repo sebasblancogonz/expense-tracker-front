@@ -1,12 +1,14 @@
 ---
+import Row from './body/Row.astro'
+import Column from './body/Column.astro'
+import DateColumn from './body/DateColumn.astro'
+import type { Expense } from '../../types/ExpenseTrackerTypes'
+
 interface Props {
-	date: Date
-	description: string
-	amount: Number
-	category: string
+	expense: Expense
 }
 
-const { date, description, amount, category } = Astro.props
+const { date, description, amount, category } = Astro.props.expense
 
 function getMonthName() {
 	return date.toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
@@ -34,19 +36,21 @@ function categoryEmoji() {
 }
 ---
 
-<tr class="border-b-[1px] dark:border-sky-300">
-	<td class="pb-14 pl-2 pt-2">
-		<div class="flex w-100 flex-col">
-			<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">{getMonthDay}</p>
-			<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName}</p>
-		</div>
-	</td>
-	<td class="pb-14  pl-2 pr-2">
+<Row>
+	<DateColumn>
+		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">{getMonthDay}</p>
+		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName}</p>
+	</DateColumn>
+	<Column>
 		<div class="flex flex-row">
-			<span class="pr-2">{categoryEmoji}</span><p class="truncate font-light text-sky-600 dark:text-sky-300">{description}</p>
+			<span class="pr-2">{categoryEmoji}</span><p
+				class="truncate font-light text-sky-600 dark:text-sky-300"
+			>
+				{description}
+			</p>
 		</div>
-	</td>
-	<td class="pb-14 pl-2 pr-2">
-		<p class="font-medium dark:text-sky-100 text-end">{amount}€</p>
-	</td>
-</tr>
+	</Column>
+	<Column>
+		<p class="text-end font-medium dark:text-sky-100">{amount}€</p>
+	</Column>
+</Row>

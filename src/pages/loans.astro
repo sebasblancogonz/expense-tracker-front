@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import TableHead from '../components/table/Head.astro'
+import TableComponent from '../components/table/Table.astro'
 import LoanRow from '../components/table/Loan.astro'
 import type { Loan } from '../types/ExpenseTrackerTypes'
 
@@ -15,17 +15,10 @@ const loan: Loan = {
 ---
 
 <Layout title="Expense Tracker">
-	<main class="mt-9 w-full bg-white [grid-area:main] dark:bg-slate-800">
-		<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
-			<TableHead isLoan={true} />
-			<tbody>
-				<LoanRow loan={loan} />
-				<LoanRow loan={loan} />
-				<LoanRow loan={loan} />
-				<LoanRow loan={loan} />
-			</tbody>
-		</table>
-	</main>
+	<TableComponent isLoan={true}>
+		<LoanRow loan={loan} />
+		<LoanRow loan={loan} />
+		<LoanRow loan={loan} />
+		<LoanRow loan={loan} />
+	</TableComponent>
 </Layout>
-
-<style></style>
