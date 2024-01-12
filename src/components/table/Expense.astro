@@ -3,6 +3,7 @@ import Row from './body/Row.astro'
 import Column from './body/Column.astro'
 import DateColumn from './body/DateColumn.astro'
 import type { Expense } from '../../types/ExpenseTrackerTypes'
+import { getMonthName, getMonthDay, categoryEmoji } from '../../utils/Utilities'
 
 interface Props {
 	expense: Expense
@@ -10,40 +11,16 @@ interface Props {
 
 const { date, description, amount, category } = Astro.props.expense
 
-function getMonthName() {
-	return date.toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
-}
-
-function getMonthDay() {
-	return date.getDate()
-}
-
-function categoryEmoji() {
-	switch (category) {
-		case 'ENTERTAINMENT':
-			return '🍿'
-		case 'TRANSPORTATION':
-			return '🚊'
-		case 'HEALTH':
-			return '🏥'
-		case 'FOOD':
-			return '🥙'
-		case 'EDUCATION':
-			return '🎓'
-		case 'OTHER':
-			return '🤷‍♂️'
-	}
-}
 ---
 
 <Row>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">{getMonthDay}</p>
-		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName}</p>
+		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">{getMonthDay(date)}</p>
+		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName(date)}</p>
 	</DateColumn>
 	<Column>
 		<div class="flex flex-row">
-			<span class="pr-2">{categoryEmoji}</span><p
+			<span class="pr-2">{categoryEmoji(category)}</span><p
 				class="truncate font-light text-sky-600 dark:text-sky-300"
 			>
 				{description}
