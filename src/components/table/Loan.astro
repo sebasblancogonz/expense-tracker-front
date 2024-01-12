@@ -1,25 +1,10 @@
 ---
-import BBVALogo from '../../logos/BBVA.astro'
+import type { Loan, Installment } from '../../types/ExpenseTrackerTypes'
 interface Props {
-	startDate: Date
-	finishDate: Date
-	description: string
-	amount: number
-	interest: number
-	bank?: string
-	installments?: Installment[]
+	loan: Loan
 }
 
-interface Installment {
-	date: Date
-	amount: number
-	redeemed: number
-	totalRedeemed: number
-	remainingInstallments: number
-	remainingAmount: number
-}
-
-const { startDate, finishDate, description, amount, interest, bank, installments } = Astro.props
+const { startDate, finishDate, description, amount, interest, bank, installments } = Astro.props.loan
 
 function getMonthName(date: Date) {
 	return date.toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()

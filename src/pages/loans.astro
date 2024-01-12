@@ -1,8 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import TableHead from '../components/table/Head.astro'
-import ExpenseRow from '../components/table/Expense.astro'
 import LoanRow from '../components/table/Loan.astro'
+import type { Loan } from '../types/ExpenseTrackerTypes'
+
+const loan: Loan = {
+	startDate: new Date(),
+	finishDate: new Date(),
+	description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+	amount: 699.99,
+	interest: 7.5,
+	bank: 'BBVA'.toUpperCase()
+}
 ---
 
 <Layout title="Expense Tracker">
@@ -10,38 +19,10 @@ import LoanRow from '../components/table/Loan.astro'
 		<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
 			<TableHead isLoan={true} />
 			<tbody>
-				<LoanRow
-					startDate={new Date()}
-					finishDate={new Date()}
-					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-					amount={699.99}
-					interest={7.5}
-					bank={'BBVA'.toUpperCase()}
-				/>
-				<LoanRow
-					startDate={new Date()}
-					finishDate={new Date()}
-					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-					amount={699.99}
-					interest={7.5}
-					bank={'BBVA'.toUpperCase()}
-				/>
-				<LoanRow
-					startDate={new Date()}
-					finishDate={new Date()}
-					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-					amount={699.99}
-					interest={7.5}
-					bank={'BBVA'.toUpperCase()}
-				/>
-				<LoanRow
-					startDate={new Date()}
-					finishDate={new Date()}
-					description="Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION"
-					amount={699.99}
-					interest={7.5}
-					bank={'BBVA'.toUpperCase()}
-				/>
+				<LoanRow loan={loan} />
+				<LoanRow loan={loan} />
+				<LoanRow loan={loan} />
+				<LoanRow loan={loan} />
 			</tbody>
 		</table>
 	</main>
