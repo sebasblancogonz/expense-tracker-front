@@ -1,8 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import PieChart from '../components/PieChart.astro'
+import type { ChartData } from '../types/ExpenseTrackerTypes'
+
+const data: ChartData = {
+	type: 'pie',
+	data: {
+		labels: ['ENTERTAINMENT', 'FOOD', 'HEALTH', 'TRANSPORTATION'],
+		datasets: [
+			{
+                label: "My month",
+				data: [200, 400, 50, 200],
+				backgroundColor: ['rgb(133, 105, 241)', 'rgb(164, 101, 241)', 'rgb(101, 143, 241)'],
+				hoverOfsset: 5
+			}
+		]
+	},
+	options: {
+		responsive: false
+	}
+}
 ---
 
 <Layout title="Expense Tracker">
+	<PieChart data={data} />
 </Layout>
 
 <style></style>

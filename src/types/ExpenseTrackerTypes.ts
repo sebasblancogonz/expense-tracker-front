@@ -23,3 +23,25 @@ export interface Expense {
 	amount: Number
 	category: string
 }
+
+export interface ChartData {
+	type: string,
+	data: Data,
+	options: Option
+}
+
+interface Data {
+	labels: string[],
+	datasets: Dataset[],
+}
+
+interface Dataset {
+	label: string,
+	data: number[],
+	backgroundColor: string[],
+	hoverOfsset: number
+}
+
+interface Option {
+	responsive: boolean
+}

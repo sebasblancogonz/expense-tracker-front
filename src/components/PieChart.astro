@@ -1,36 +1,19 @@
 ---
-import {Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import type { ChartData } from 'chart.js'
-import { Pie } from 'react-chartjs-2'
+import type { ChartData } from '../types/ExpenseTrackerTypes';
 
-ChartJS.register(ArcElement, Tooltip, Legend)
 
 interface Props {
-	data: Map<string, number>
+	data: ChartData
 }
 
 const { data } = Astro.props
 
-const dataPie: ChartData<'pie'> = {
-	labels: ['ONE', 'TWO', 'THREE'],
-	datasets: [
-		{
-			label: 'My First Dataset',
-			data: [200, 300, 400],
-			backgroundColor: ['rgb(133, 105, 241)', 'rgb(164, 101, 241)', 'rgb(101, 143, 241)']
-		}
-	]
-}
-
-function log() {
-
-    console.log(dataPie)
-}
-
 ---
 
-<div class="h-[500px] w-[500px] p-10">
-    <h1>Title</h1>
-	<Pie data={dataPie}/>
-    {log}
-</div>
+<canvas id="chartId" aria-label="chart" height="350" width="580"></canvas>
+   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+   <script is:inline define:vars={{data}}>
+      var chrt = document.getElementById("chartId").getContext("2d");
+		console.log(data)
+	  new Chart(chrt, data);
+   </script>
