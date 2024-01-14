@@ -20,7 +20,7 @@ const { title } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark:bg-slate-800">
+	<body class="dark:bg-chestnut-950">
 		<div id="app" class="relative h-screen gap-2">
 			<LeftMenu />
 
@@ -30,6 +30,12 @@ const { title } = Astro.props
 		</div>
 	</body>
 </html>
+
+<style is:global>
+	body * {
+    @apply transition-colors duration-200;
+}
+</style>
 
 <style>
 	#app {

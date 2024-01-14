@@ -1,19 +1,17 @@
 ---
-import type { ChartData } from '../types/ExpenseTrackerTypes';
-
+import type { ChartData } from '../types/ExpenseTrackerTypes'
 
 interface Props {
 	data: ChartData
 }
 
 const { data } = Astro.props
-
 ---
 
 <canvas id="chartId" aria-label="chart" height="350" width="580"></canvas>
-   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
-   <script is:inline define:vars={{data}}>
-      var chrt = document.getElementById("chartId").getContext("2d");
-		console.log(data)
-	  new Chart(chrt, data);
-   </script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+<script is:inline define:vars={{ data }}>
+	var chrt = document.getElementById('chartId').getContext('2d')
+	console.log(data)
+	new Chart(chrt, data)
+</script>

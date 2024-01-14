@@ -16,34 +16,34 @@ const { startDate, finishDate, description, amount, interest, bank, installments
 
 <Row>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">
+		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-500">
 			{getMonthDay(startDate)}
 		</p>
-		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName(startDate)}</p>
-		<p class="text-xs leading-normal text-sky-600 dark:text-sky-300">{getYear(startDate)}</p>
+		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(startDate)}</p>
+		<p class="text-xs leading-normal text-chestnut-600 dark:text-chestnut-300">{getYear(startDate)}</p>
 	</DateColumn>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">
+		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-500">
 			{getMonthDay(finishDate)}
 		</p>
-		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName(finishDate)}</p>
-		<p class="text-xs leading-normal text-sky-600 dark:text-sky-300">{getYear(finishDate)}</p>
+		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(finishDate)}</p>
+		<p class="text-xs leading-normal text-chestnut-600 dark:text-chestnut-300">{getYear(finishDate)}</p>
 	</DateColumn>
 	<Column>
 		<div class="flex flex-row">
-			<p class="truncate font-light text-sky-600 dark:text-sky-300">
+			<p class="truncate font-light text-chestnut-600 dark:text-chestnut-300">
 				{description}
 			</p>
 		</div>
 	</Column>
 
 	<Column>
-		<p class="text-end font-medium dark:text-sky-100">{amount}€</p>
+		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 	</Column>
 	<Column>
-		<p class="text-end font-medium dark:text-sky-100">{interest}%</p>
+		<p class="text-end font-medium dark:text-chestnut-100">{interest}%</p>
 	</Column>
 	<Column>
-		<p class="text-end font-medium dark:text-sky-100">{bank}</p>
+		<p class="text-end font-medium dark:text-chestnut-100">{bank}</p>
 	</Column>
 </Row>

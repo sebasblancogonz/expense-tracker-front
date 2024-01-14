@@ -15,19 +15,19 @@ const { date, description, amount, category } = Astro.props.expense
 
 <Row>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-sky-800 dark:text-sky-500">{getMonthDay(date)}</p>
-		<p class="leading-extra-tight text-sky-600 dark:text-sky-300">{getMonthName(date)}</p>
+		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-600">{getMonthDay(date)}</p>
+		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(date)}</p>
 	</DateColumn>
 	<Column>
 		<div class="flex flex-row">
 			<span class="pr-2">{categoryEmoji(category)}</span><p
-				class="truncate font-light text-sky-600 dark:text-sky-300"
+				class="truncate font-light text-chestnut-600 dark:text-chestnut-300"
 			>
 				{description}
 			</p>
 		</div>
 	</Column>
 	<Column>
-		<p class="text-end font-medium dark:text-sky-100">{amount}€</p>
+		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 	</Column>
 </Row>
