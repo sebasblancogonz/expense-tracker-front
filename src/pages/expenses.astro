@@ -30,12 +30,36 @@ const expenses: Expense[] = [
 		description: 'Sanitas',
 		amount: 42,
 		category: 'HEALTH'
+	},
+	{
+		date: new Date(),
+		description: 'Mercadona, carrefour',
+		amount: 423.98,
+		category: 'FOOD'
+	},
+	{
+		date: new Date(),
+		description: 'Ocio',
+		amount: 500,
+		category: 'ENTERTAINMENT'
+	},
+	{
+		date: new Date(),
+		description: 'Gasolina',
+		amount: 160,
+		category: 'TRANSPORTATION'
+	},
+	{
+		date: new Date(),
+		description: 'Sanitas',
+		amount: 42,
+		category: 'HEALTH'
 	}
 ]
 ---
 
 <Layout title="Expense Tracker">
-	<main class="flex flex-col mt-9 w-full [grid-area:main]">
+	<main class="flex flex-col w-full [grid-area:main]">
 		<PieChart data={buildExpensesChartData(expenses)} />
 		<TableComponent isLoan={false}>
 			{

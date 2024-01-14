@@ -8,9 +8,11 @@ interface Props {
 const { isLoan } = Astro.props
 ---
 
-<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
-	<TableHead isLoan={isLoan} />
-	<tbody>
-		<slot />
-	</tbody>
-</table>
+<div class="flex flex-col max-h-[50vh] overflow-y-auto">
+	<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
+		<TableHead isLoan={isLoan} />
+		<tbody class="max-h-screen overflow-y-auto">
+			<slot />
+		</tbody>
+	</table>
+</div>

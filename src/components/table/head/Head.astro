@@ -7,7 +7,7 @@ const { isLoan } = Astro.props
 ---
 
 <thead
-	class="border-collapse border-b-[1px] border-t-[1px] border-zinc-200 bg-zinc-100 uppercase tracking-wider dark:border-neutral-600"
+	class="sticky top-0 border-collapse border-b-[1px] border-t-[1px] border-zinc-200 bg-zinc-100 uppercase tracking-wider dark:border-neutral-600"
 >
 	<tr>
 		<th class="w-1/6 border-r-[1px] pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700"
@@ -23,16 +23,16 @@ const { isLoan } = Astro.props
 		<th class="w-2/4 border-r-[1px] pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700"
 			>Description</th
 		>
-		<th class=`${isLoan && 'border-r-[1px]'} w-1/6 pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700`>Amount</th>
+		<th class=`${isLoan && 'border-r-[1px]'} w-1/6 pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700`
+			>Amount</th
+		>
 		{
 			isLoan && (
 				<>
 					<th class="w-1/6 border-r-[1px] pb-2 pl-1 pt-2 text-xs font-normal text-zinc-700">
 						Interest
 					</th>
-					<th class="w-1/6 pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700">
-						Bank
-					</th>
+					<th class="w-1/6 pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700">Bank</th>
 				</>
 			)
 		}
