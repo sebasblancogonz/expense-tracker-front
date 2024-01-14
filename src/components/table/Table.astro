@@ -1,18 +1,16 @@
 ---
-import TableHead from "./head/Head.astro"
+import TableHead from './head/Head.astro'
 
 interface Props {
-    isLoan: boolean
+	isLoan: boolean
 }
 
-const  { isLoan } = Astro.props
-
+const { isLoan } = Astro.props
 ---
-<main class="mt-9 w-full [grid-area:main]">
-	<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
-		<TableHead isLoan={isLoan} />
-		<tbody>
-			<slot />
-		</tbody>
-	</table>
-</main>
+
+<table class="mt-1 w-full table-fixed rounded-lg text-left text-sm shadow-lg">
+	<TableHead isLoan={isLoan} />
+	<tbody>
+		<slot />
+	</tbody>
+</table>
