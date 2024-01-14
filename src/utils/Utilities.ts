@@ -1,3 +1,5 @@
+import type { Expense } from '../types/ExpenseTrackerTypes'
+
 export function getMonthName(date: Date) {
 	return date.toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
 }
@@ -25,4 +27,15 @@ export function categoryEmoji(category: string) {
 		case 'OTHER':
 			return '🤷‍♂️'
 	}
+}
+
+export function buildExpensesChartData(expenses: Expense[]) {
+	var data: Map<string, number>;
+	expenses.map((expense) => {
+		if (!data.has(expense.category)) {
+			data.set(expense.category, expense.amount)
+		} else {
+			data.set(expense.category, data.get(expense.category) + expense.amount)
+		}
+	})
 }

@@ -20,7 +20,7 @@ export interface Loan {
 export interface Expense {
 	date: Date
 	description: string
-	amount: Number
+	amount: number
 	category: string
 }
 
