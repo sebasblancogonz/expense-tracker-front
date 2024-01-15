@@ -1,15 +1,15 @@
 import type { Expense, ChartData } from '../types/ExpenseTrackerTypes'
 
-export function getMonthName(date: Date) {
-	return date.toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
+export function getMonthName(date: string) {
+	return new Date(date).toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
 }
 
-export function getYear(date: Date) {
-	return date.getFullYear()
+export function getYear(date: string) {
+	return new Date(date).getFullYear()
 }
 
-export function getMonthDay(date: Date) {
-	return date.getDate()
+export function getMonthDay(date: string) {
+	return new Date(date).getDate()
 }
 
 export function categoryEmoji(category: string) {
@@ -24,7 +24,7 @@ export function categoryEmoji(category: string) {
 			return '🥙'
 		case 'EDUCATION':
 			return '🎓'
-		case 'OTHER':
+		case 'OTHERS':
 			return '🤷‍♂️'
 	}
 }

@@ -6,63 +6,17 @@ import type { Expense } from '../types/ExpenseTrackerTypes'
 import { buildExpensesChartData } from '../utils/Utilities'
 import PieChart from '../components/PieChart.astro'
 
-const expenses: Expense[] = [
-	{
-		date: new Date(),
-		description: 'Mercadona, carrefour',
-		amount: 423.98,
-		category: 'FOOD'
-	},
-	{
-		date: new Date(),
-		description: 'Ocio',
-		amount: 500,
-		category: 'ENTERTAINMENT'
-	},
-	{
-		date: new Date(),
-		description: 'Gasolina',
-		amount: 160,
-		category: 'TRANSPORTATION'
-	},
-	{
-		date: new Date(),
-		description: 'Sanitas',
-		amount: 42,
-		category: 'HEALTH'
-	},
-	{
-		date: new Date(),
-		description: 'Mercadona, carrefour',
-		amount: 423.98,
-		category: 'FOOD'
-	},
-	{
-		date: new Date(),
-		description: 'Ocio',
-		amount: 500,
-		category: 'ENTERTAINMENT'
-	},
-	{
-		date: new Date(),
-		description: 'Gasolina',
-		amount: 160,
-		category: 'TRANSPORTATION'
-	},
-	{
-		date: new Date(),
-		description: 'Sanitas',
-		amount: 42,
-		category: 'HEALTH'
-	}
-]
+const response = await fetch("http://localhost:8080/expense-tracker/expenses")
+const data = await response.json()
+console.log(data)
+
 ---
 
 <Layout title="Expense Tracker">
 	<main class="flex w-full flex-col [grid-area:main]">
-		<PieChart data={buildExpensesChartData(expenses)} />
+		<PieChart data={buildExpensesChartData(data)} />
 		<TableComponent isLoan={false}>
-			{expenses.map((expense) => <ExpenseRow expense={expense} />)}
+			{data && data.map((expense: Expense) => <ExpenseRow expense={expense} />)}
 		</TableComponent>
 	</main>
 </Layout>

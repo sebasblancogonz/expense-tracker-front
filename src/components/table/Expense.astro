@@ -9,14 +9,14 @@ interface Props {
 	expense: Expense
 }
 
-const { date, description, amount, category } = Astro.props.expense
+const { paymentDate, description, amount, category } = Astro.props.expense
 
 ---
 
 <Row>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-600">{getMonthDay(date)}</p>
-		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(date)}</p>
+		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-600">{getMonthDay(paymentDate)}</p>
+		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(paymentDate)}</p>
 	</DateColumn>
 	<Column>
 		<div class="flex flex-row">
