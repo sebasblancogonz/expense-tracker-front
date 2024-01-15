@@ -4,21 +4,52 @@ import TableComponent from '../components/table/Table.astro'
 import LoanRow from '../components/table/Loan.astro'
 import type { Loan } from '../types/ExpenseTrackerTypes'
 
-const loan: Loan = {
-	startDate: new Date(),
-	finishDate: new Date(),
-	description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
-	amount: 699.99,
-	interest: 7.5,
-	bank: 'BBVA'.toUpperCase()
-}
+const loans: Loan[] = [
+	{
+		startDate: new Date(),
+		finishDate: new Date(),
+		description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+		amount: 699.99,
+		interest: 7.5,
+		bank: 'BBVA'.toUpperCase()
+	},
+	{
+		startDate: new Date(),
+		finishDate: new Date(),
+		description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+		amount: 699.99,
+		interest: 7.5,
+		bank: 'BBVA'.toUpperCase()
+	},
+	{
+		startDate: new Date(),
+		finishDate: new Date(),
+		description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+		amount: 699.99,
+		interest: 7.5,
+		bank: 'BBVA'.toUpperCase()
+	},
+	{
+		startDate: new Date(),
+		finishDate: new Date(),
+		description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+		amount: 699.99,
+		interest: 7.5,
+		bank: 'BBVA'.toUpperCase()
+	},
+	{
+		startDate: new Date(),
+		finishDate: new Date(),
+		description: 'Test expense AND A LONGONGONGONONONOGNONGONGOGNOGN DESCRIPTION',
+		amount: 699.99,
+		interest: 7.5,
+		bank: 'BBVA'.toUpperCase()
+	}
+]
 ---
 
 <Layout title="Expense Tracker">
 	<TableComponent isLoan={true}>
-		<LoanRow loan={loan} />
-		<LoanRow loan={loan} />
-		<LoanRow loan={loan} />
-		<LoanRow loan={loan} />
+		{loans.map((loan) => <LoanRow loan={loan} />)}
 	</TableComponent>
 </Layout>

@@ -25,44 +25,42 @@ const { title } = Astro.props
 			<LeftMenu />
 
 			<slot />
-
-			<RightMenu < div />
+			
+			<RightMenu />
 		</div>
-
-		<style>
-			#app {
-				display: grid;
-				grid-template-areas: 'aside-l main aside-r';
-				grid-template-columns: 1fr 2fr 1fr;
-			}
-		</style>
-		<style is:global>
-			:root {
-				--accent: 136, 58, 234;
-				--accent-light: 224, 204, 250;
-				--accent-dark: 49, 10, 101;
-				--accent-gradient: linear-gradient(
-					45deg,
-					rgb(var(--accent)),
-					rgb(var(--accent-light)) 30%,
-					white 60%
-				);
-			}
-			code {
-				font-family:
-					Menlo,
-					Monaco,
-					Lucida Console,
-					Liberation Mono,
-					DejaVu Sans Mono,
-					Bitstream Vera Sans Mono,
-					Courier New,
-					monospace;
-			}
-
-			body * {
-				@apply transition-colors duration-200;
-			}
-		</style>
 	</body>
 </html>
+
+<style>
+	#app {
+		display: grid;
+		grid-template-areas:
+			'aside-l main aside-r';
+		grid-template-columns: 1fr 2fr 1fr;
+	}
+</style>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	
+</style>

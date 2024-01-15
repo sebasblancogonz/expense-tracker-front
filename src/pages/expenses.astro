@@ -59,14 +59,10 @@ const expenses: Expense[] = [
 ---
 
 <Layout title="Expense Tracker">
-	<main class="flex flex-col w-full [grid-area:main]">
+	<main class="flex w-full flex-col [grid-area:main]">
 		<PieChart data={buildExpensesChartData(expenses)} />
 		<TableComponent isLoan={false}>
-			{
-				expenses.map((expense) => {
-					return <ExpenseRow expense={expense} />
-				})
-			}
+			{expenses.map((expense) => <ExpenseRow expense={expense} />)}
 		</TableComponent>
 	</main>
 </Layout>
