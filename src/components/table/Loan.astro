@@ -9,7 +9,7 @@ interface Props {
 	loan: Loan
 }
 
-const { startDate, finishDate, description, amount, interest, bank, installments } =
+const { startDate, finishDate, description, totalAmount, interest, bank, installments } =
 	Astro.props.loan
 
 ---
@@ -38,7 +38,7 @@ const { startDate, finishDate, description, amount, interest, bank, installments
 	</Column>
 
 	<Column>
-		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
+		<p class="text-end font-medium dark:text-chestnut-100">{totalAmount}€</p>
 	</Column>
 	<Column>
 		<p class="text-end font-medium dark:text-chestnut-100">{interest}%</p>
