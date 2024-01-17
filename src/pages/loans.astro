@@ -4,7 +4,7 @@ import TableComponent from '../components/table/Table.astro'
 import LoanRow from '../components/table/Loan.astro'
 import type { Loan } from '../types/ExpenseTrackerTypes'
 
-const api_url = import.meta.env.API_URL
+const api_url = import.meta.env.API_URL != null ? import.meta.env.API_URL : "https://expense-tracker-29rd.onrender.com/expense-tracker" 
 const response = await fetch(api_url + "/loans")
 const data = await response.json()
 ---
