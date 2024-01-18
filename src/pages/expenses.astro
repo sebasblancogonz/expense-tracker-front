@@ -5,14 +5,17 @@ import ExpenseRow from '../components/table/Expense.astro'
 import type { Expense } from '../types/ExpenseTrackerTypes'
 import { buildExpensesChartData } from '../utils/Utilities'
 import PieChart from '../components/PieChart.astro'
+import LeftMenu from '../components/menu/LeftMenu.astro'
 
-const api_url = import.meta.env.API_URL != null ? import.meta.env.API_URL : "https://expense-tracker-29rd.onrender.com/expense-tracker" 
-const response = await fetch(api_url + "/expenses")
+const api_url =
+	import.meta.env.API_URL != null
+		? import.meta.env.API_URL
+		: 'https://expense-tracker-29rd.onrender.com/expense-tracker'
+const response = await fetch(api_url + '/expenses')
 const data = await response.json()
-
 ---
 
-<Layout title="Expense Tracker">
+<Layout title="Expense Tracker: Manage your expenses" menu="expenses">
 	<main class="flex w-full flex-col [grid-area:main]">
 		<PieChart data={buildExpensesChartData(data)} />
 		<TableComponent isLoan={false}>

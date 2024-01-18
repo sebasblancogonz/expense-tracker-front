@@ -9,7 +9,7 @@ const response = await fetch(api_url + "/loans")
 const data = await response.json()
 ---
 
-<Layout title="Expense Tracker">
+<Layout title="Expense Tracker: Manage your loans">
 	<TableComponent isLoan={true}>
 		{data.map((loan: Loan) => <LoanRow loan={loan} />)}
 	</TableComponent>
