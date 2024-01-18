@@ -12,6 +12,14 @@ export function getMonthDay(date: string) {
 	return new Date(date).getDate()
 }
 
+export function formatDateToAPI(date: string) {
+	let dateType: Date = new Date(date)
+	let month: number = dateType.getMonth() + 1
+	let day: number = dateType.getDate()
+	let year: number = dateType.getFullYear()
+	return (month < 10 ? "0"+month : month) + "/" + day + "/" + year;
+}
+
 export function categoryEmoji(category: string) {
 	switch (category) {
 		case 'ENTERTAINMENT':
@@ -24,7 +32,7 @@ export function categoryEmoji(category: string) {
 			return '🥙'
 		case 'EDUCATION':
 			return '🎓'
-		case 'OTHERS':
+		default:
 			return '🤷‍♂️'
 	}
 }

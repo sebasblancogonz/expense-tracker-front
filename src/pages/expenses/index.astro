@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import TableComponent from '../components/table/Table.astro'
-import ExpenseRow from '../components/table/Expense.astro'
-import type { Expense } from '../types/ExpenseTrackerTypes'
-import { buildExpensesChartData } from '../utils/Utilities'
-import PieChart from '../components/PieChart.astro'
-import LeftMenu from '../components/menu/LeftMenu.astro'
+import Layout from '../../layouts/Layout.astro'
+import TableComponent from '../../components/table/Table.astro'
+import ExpenseRow from '../../components/table/Expense.astro'
+import type { Expense } from '../../types/ExpenseTrackerTypes'
+import { buildExpensesChartData } from '../../utils/Utilities'
+import PieChart from '../../components/PieChart.astro'
+import LeftMenu from '../../components/menu/LeftMenu.astro'
 
 const api_url =
 	import.meta.env.API_URL != null
