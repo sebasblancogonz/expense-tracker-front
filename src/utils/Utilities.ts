@@ -1,7 +1,16 @@
 import type { Expense, ChartData } from '../types/ExpenseTrackerTypes'
 
+export const apiUrl = () => {
+	return import.meta.env.API_URL != null
+		? import.meta.env.API_URL
+		: 'https://expense-tracker-29rd.onrender.com/expense-tracker'
+}
+
 export function getMonthName(date: string) {
-	return new Date(date).toLocaleDateString('default', { month: 'long' }).substring(0, 3).toUpperCase()
+	return new Date(date)
+		.toLocaleDateString('default', { month: 'long' })
+		.substring(0, 3)
+		.toUpperCase()
 }
 
 export function getYear(date: string) {
@@ -10,6 +19,14 @@ export function getYear(date: string) {
 
 export function getMonthDay(date: string) {
 	return new Date(date).getDate()
+}
+
+export function formatDateToAPI(date: string) {
+	let dateType: Date = new Date(date)
+	let month: number = dateType.getMonth() + 1
+	let day: number = dateType.getDate()
+	let year: number = dateType.getFullYear()
+	return (month < 10 ? '0' + month : month) + '/' + day + '/' + year
 }
 
 export function categoryEmoji(category: string) {
@@ -24,7 +41,7 @@ export function categoryEmoji(category: string) {
 			return '🥙'
 		case 'EDUCATION':
 			return '🎓'
-		case 'OTHERS':
+		default:
 			return '🤷‍♂️'
 	}
 }

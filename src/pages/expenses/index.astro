@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import TableComponent from '../../components/table/Table.astro'
+import ExpenseRow from '../../components/table/Expense.astro'
+import type { Expense } from '../../types/ExpenseTrackerTypes'
+import { buildExpensesChartData, apiUrl } from '../../utils/Utilities'
+import PieChart from '../../components/PieChart.astro'
+const response = await fetch(`${apiUrl()}/expenses`)
+const data = await response.json()
+---
+
+<Layout title="Expense Tracker: Manage your expenses" menu="expenses">
+	<main class="flex w-full flex-col [grid-area:main]">
+		<PieChart data={buildExpensesChartData(data)} />
+		<TableComponent isLoan={false}>
+			{data && data.map((expense: Expense) => <ExpenseRow expense={expense} />)}
+		</TableComponent>
+	</main>
+</Layout>

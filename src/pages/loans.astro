@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro'
 import TableComponent from '../components/table/Table.astro'
 import LoanRow from '../components/table/Loan.astro'
 import type { Loan } from '../types/ExpenseTrackerTypes'
+import { apiUrl } from '../utils/Utilities'
 
-const api_url = import.meta.env.API_URL != null ? import.meta.env.API_URL : "https://expense-tracker-29rd.onrender.com/expense-tracker" 
-const response = await fetch(api_url + "/loans")
+const response = await fetch(`${apiUrl()}/expenses`)
 const data = await response.json()
 ---
 
-<Layout title="Expense Tracker">
+<Layout title="Expense Tracker: Manage your loans">
 	<TableComponent isLoan={true}>
 		{data.map((loan: Loan) => <LoanRow loan={loan} />)}
 	</TableComponent>
