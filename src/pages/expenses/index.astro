@@ -3,15 +3,9 @@ import Layout from '../../layouts/Layout.astro'
 import TableComponent from '../../components/table/Table.astro'
 import ExpenseRow from '../../components/table/Expense.astro'
 import type { Expense } from '../../types/ExpenseTrackerTypes'
-import { buildExpensesChartData } from '../../utils/Utilities'
+import { buildExpensesChartData, apiUrl } from '../../utils/Utilities'
 import PieChart from '../../components/PieChart.astro'
-import LeftMenu from '../../components/menu/LeftMenu.astro'
-
-const api_url =
-	import.meta.env.API_URL != null
-		? import.meta.env.API_URL
-		: 'https://expense-tracker-29rd.onrender.com/expense-tracker'
-const response = await fetch(api_url + '/expenses')
+const response = await fetch(`${apiUrl()}/expenses`)
 const data = await response.json()
 ---
 

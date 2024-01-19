@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import { formatDateToAPI } from '../../utils/Utilities'
+import { formatDateToAPI, apiUrl } from '../../utils/Utilities'
 import type { Expense } from '../../types/ExpenseTrackerTypes'
 
 if (Astro.request.method === 'POST') {
@@ -17,8 +17,7 @@ if (Astro.request.method === 'POST') {
             category
         }
 
-        console.log(JSON.stringify(request))
-        fetch("http://localhost:8080/expense-tracker/expenses", {
+        fetch(`${apiUrl()}/expenses`, {
             method: "POST",
             body: JSON.stringify(request),
             headers: { "Content-Type": "application/json"}
