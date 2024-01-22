@@ -4,12 +4,14 @@ import Column from './body/Column.astro'
 import DateColumn from './body/DateColumn.astro'
 import type { Expense } from '../../types/ExpenseTrackerTypes'
 import { getMonthName, getMonthDay, categoryEmoji } from '../../utils/Utilities'
+import { removeExpense } from '../../utils/ApiUtils'
+import Trash from '../../icons/Trash.astro'
 
 interface Props {
 	expense: Expense
 }
 
-const { date, description, amount, category } = Astro.props.expense
+const { id, date, description, amount, category } = Astro.props.expense
 
 ---
 
@@ -30,4 +32,17 @@ const { date, description, amount, category } = Astro.props.expense
 	<Column>
 		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 	</Column>
+	<Column>
+		<button id={id} class="text-end font-medium dark:text-chestnut-100"><Trash /></p>
+	</Column>
 </Row>
+
+<script define:vars={{removeExpense}}>
+	const tgt = document.getElementsByTagName("button");
+	console.log(tgt)
+	const id = tgt.item.arguments
+	tgt.addEventListener("click", (e) => {
+	  e.preventDefault()
+
+	});
+  </script>

@@ -1,11 +1,5 @@
 import type { Expense, ChartData } from '../types/ExpenseTrackerTypes'
 
-export const apiUrl = () => {
-	return import.meta.env.API_URL != null
-		? import.meta.env.API_URL
-		: 'https://expense-tracker-29rd.onrender.com/expense-tracker'
-}
-
 export function getMonthName(date: string) {
 	return new Date(date)
 		.toLocaleDateString('default', { month: 'long' })
@@ -47,6 +41,7 @@ export function categoryEmoji(category: string) {
 }
 
 export function buildExpensesChartData(expenses: Expense[]): ChartData {
+	console.log(expenses)
 	var data: Map<string, number> = new Map()
 	expenses.map((expense) => {
 		let category = expense.category

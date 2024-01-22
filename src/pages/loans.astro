@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro'
 import TableComponent from '../components/table/Table.astro'
 import LoanRow from '../components/table/Loan.astro'
 import type { Loan } from '../types/ExpenseTrackerTypes'
-import { apiUrl } from '../utils/Utilities'
+import { getLoans } from '../utils/ApiUtils';
 
-const response = await fetch(`${apiUrl()}/expenses`)
-const data = await response.json()
+const data = await getLoans()
 ---
 
 <Layout title="Expense Tracker: Manage your loans">
