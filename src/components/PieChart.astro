@@ -13,6 +13,5 @@ const { data } = Astro.props
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
 <script is:inline define:vars={{ data }}>
 	var chrt = document.getElementById('chartId').getContext('2d')
-	console.log(data)
 	new Chart(chrt, data)
 </script>

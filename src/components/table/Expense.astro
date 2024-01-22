@@ -4,7 +4,7 @@ import Column from './body/Column.astro'
 import DateColumn from './body/DateColumn.astro'
 import type { Expense } from '../../types/ExpenseTrackerTypes'
 import { getMonthName, getMonthDay, categoryEmoji } from '../../utils/Utilities'
-import { removeExpense } from '../../utils/ApiUtils'
+import RemoveButton from './body/RemoveButton'
 import Trash from '../../icons/Trash.astro'
 
 interface Props {
@@ -12,12 +12,13 @@ interface Props {
 }
 
 const { id, date, description, amount, category } = Astro.props.expense
-
 ---
 
-<Row>
+<Row id={id}>
 	<DateColumn>
-		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-600">{getMonthDay(date)}</p>
+		<p class="w-10 text-2xl font-medium text-chestnut-800 dark:text-chestnut-600">
+			{getMonthDay(date)}
+		</p>
 		<p class="leading-extra-tight text-chestnut-600 dark:text-chestnut-300">{getMonthName(date)}</p>
 	</DateColumn>
 	<Column>
@@ -33,16 +34,7 @@ const { id, date, description, amount, category } = Astro.props.expense
 		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 	</Column>
 	<Column>
-		<button id={id} class="text-end font-medium dark:text-chestnut-100"><Trash /></p>
+		<RemoveButton id={id}><Trash /></RemoveButton>
 	</Column>
 </Row>
 
-<script define:vars={{removeExpense}}>
-	const tgt = document.getElementsByTagName("button");
-	console.log(tgt)
-	const id = tgt.item.arguments
-	tgt.addEventListener("click", (e) => {
-	  e.preventDefault()
-
-	});
-  </script>

@@ -23,14 +23,6 @@ export const addExpense = (request: Expense) => {
 		.catch((err) => console.log(err))
 }
 
-export const removeExpense = (rowData: string | null | undefined) => {
-	fetch(`${apiUrl()}/expenses/${rowData}`, {
-		method: 'DELETE'
-	})
-		.then((response) => response.json())
-		.then((json) => console.log(json))
-		.catch((err) => console.log(err))
-}
 
 
 export const getLoans = async () => {

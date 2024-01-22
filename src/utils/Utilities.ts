@@ -41,7 +41,6 @@ export function categoryEmoji(category: string) {
 }
 
 export function buildExpensesChartData(expenses: Expense[]): ChartData {
-	console.log(expenses)
 	var data: Map<string, number> = new Map()
 	expenses.map((expense) => {
 		let category = expense.category

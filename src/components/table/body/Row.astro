@@ -1,3 +1,11 @@
-<tr class="border-b-[1px] dark:border-chestnut-300 hover:bg-chestnut-200 dark:hover:bg-chestnut-900">
+---
+interface Props {
+    id?: string
+}
+
+const { id } = Astro.props
+---
+
+<tr id={id} class="border-b-[1px] dark:border-chestnut-300 hover:bg-chestnut-200 dark:hover:bg-chestnut-900">
     <slot />
 </tr>
