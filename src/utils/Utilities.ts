@@ -20,7 +20,7 @@ export function formatDateToAPI(date: string) {
 	let month: number = dateType.getMonth() + 1
 	let day: number = dateType.getDate()
 	let year: number = dateType.getFullYear()
-	return (month < 10 ? '0' + month : month) + '/' + day + '/' + year
+	return (month < 10 ? '0' + month : month) + '/' + (day < 10 ? '0' + day : day) + '/' + year
 }
 
 export function categoryEmoji(category: string) {

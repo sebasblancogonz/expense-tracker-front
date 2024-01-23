@@ -1,15 +1,15 @@
-import { apiUrl } from "../../../utils/ApiUtils"
+import { removeExpense } from "../../../utils/ApiUtils"
 
 const RemoveButton = (props) => {
-    const removeExpense = (e) => {
+    const handleRemove = (e) => {
         e.preventDefault()
-        console.log(props.id)
-        
+        removeExpense(props.id)
+        e.target.closest("tr").remove()
     }
     
 
     return (
-        <button onClick={removeExpense} class="remove-row text-end font-medium dark:text-chestnut-100">{props.children}</button>
+        <button onClick={handleRemove} className="remove-row text-end font-medium dark:text-chestnut-100">{props.children}</button>
     )
 }
 

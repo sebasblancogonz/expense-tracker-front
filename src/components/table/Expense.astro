@@ -34,7 +34,7 @@ const { id, date, description, amount, category } = Astro.props.expense
 		<p class="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 	</Column>
 	<Column>
-		<RemoveButton id={id}><Trash /></RemoveButton>
+		<RemoveButton client:load id={id}><Trash /></RemoveButton>
 	</Column>
 </Row>
 
