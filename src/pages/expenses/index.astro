@@ -1,22 +1,8 @@
 ---
+import ExpensesHome from './ExpensesHome'
 import Layout from '../../layouts/Layout.astro'
-import TableComponent from '../../components/table/Table.astro'
-import ExpenseRow from '../../components/table/Expense.astro'
-import type { Expense } from '../../types/ExpenseTrackerTypes'
-import { buildExpensesChartData } from '../../utils/Utilities'
-import { getExpenses } from '../../utils/ApiUtils'
-import PieChart from '../../components/PieChart.astro'
-
-const data = await getExpenses()
-
-const existsData = data != null && data.lengh > 0
 ---
 
 <Layout title="Expense Tracker: Manage your expenses" menu="expenses">
-	<main class="flex w-full flex-col [grid-area:main]">
-		{existsData && (<PieChart data={buildExpensesChartData(data)} />)}
-		<TableComponent isLoan={false}>
-			{existsData && data.map((expense: Expense) => <ExpenseRow expense={expense} />)}
-		</TableComponent>
-	</main>
+	<ExpensesHome client:load />
 </Layout>

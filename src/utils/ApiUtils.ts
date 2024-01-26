@@ -1,4 +1,5 @@
 import type { Expense } from '../types/ExpenseTrackerTypes'
+import { addExpenses, expenses } from '../stores/expenseStore'
 
 export const apiUrl = () => {
 	return import.meta.env.PUBLIC_API_URL != null
@@ -6,10 +7,10 @@ export const apiUrl = () => {
 		: 'https://expense-tracker-29rd.onrender.com/expense-tracker'
 }
 
-export const getExpenses = async () => {
+export const fetchExpenses = async () => {
 	const response = await fetch(`${apiUrl()}/expenses`)
 	const data = await response.json()
-	return data
+	addExpenses(data)
 }
 
 export const removeExpense = (id: string) => {

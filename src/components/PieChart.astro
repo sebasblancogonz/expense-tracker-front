@@ -10,7 +10,6 @@ const { data } = Astro.props
 <div class="mx-auto my-10">
 	<canvas id="chartId" aria-label="chart"></canvas>
 </div>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
 <script is:inline define:vars={{ data }}>
 	var chrt = document.getElementById('chartId').getContext('2d')
 	new Chart(chrt, data)
