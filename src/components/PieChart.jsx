@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Chart as ChartJS, Legend, ArcElement, Tooltip } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import { expenses as expensesStore } from '../stores/expenseStore'

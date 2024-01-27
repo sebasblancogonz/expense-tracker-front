@@ -59,7 +59,10 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 					label: 'Expenses chart',
 					data: [...data.values()],
 					hoverOfsset: 5,
-					backgroundColor: ['rgb(239,183,178)']
+					backgroundColor: [
+						'rgb(239,183,178)',
+						'rgb(146,202,206)'
+					]
 				}
 			]
 		}
