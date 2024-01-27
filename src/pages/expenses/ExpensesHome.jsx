@@ -16,7 +16,7 @@ function ExpensesHome() {
 		<main className="flex w-full flex-col [grid-area:main]">
 			{expenses && <PieChart />}
 			<Table isLoan={false}>
-				{expenses && expenses.map((expense) => <ExpenseRow expense={expense} />)}
+				{expenses && expenses.map((expense, index) => <ExpenseRow key={index} expense={expense} />)}
 			</Table>
 		</main>
 	)

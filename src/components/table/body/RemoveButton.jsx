@@ -4,7 +4,6 @@ const RemoveButton = (props) => {
     const handleRemove = (e) => {
         e.preventDefault()
         removeExpense(props.id)
-        e.target.closest("tr").remove()
     }
     
 

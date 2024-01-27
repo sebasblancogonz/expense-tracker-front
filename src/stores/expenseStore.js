@@ -9,7 +9,8 @@ export function addExpenses(expenseList) {
 }
 
 export function removeExpense(expenseId) {
-    expenses.set(expenses.get().splice(expenses.get().findIndex(expense => expense.id === expenseId), 1))
+    console.log(expenses.get().filter((expense) => expense.id !== expenseId))
+    expenses.set(expenses.get().filter((expense) => expense.id !== expenseId))
     removeExpenseFromAPI(expenseId)
 }
 
