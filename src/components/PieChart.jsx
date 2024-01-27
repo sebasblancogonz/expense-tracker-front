@@ -6,10 +6,14 @@ import { buildExpensesPie } from '../utils/Utilities'
 
 ChartJS.register(Legend, ArcElement, Tooltip)
 
-const PieChart = (props) => {
+const PieChart = () => {
 	const expenses = useStore(expensesStore)
 
-	return <Pie height={'200px'} width={'200px'} data={buildExpensesPie(expenses)} />
+	return (
+		<div className="flex h-[400px] w-[400px] my-0 mx-auto">
+			<Pie data={buildExpensesPie(expenses)} />
+		</div>
+	)
 }
 
 export default PieChart

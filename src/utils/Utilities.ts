@@ -61,7 +61,12 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 					hoverOfsset: 5,
 					backgroundColor: [
 						'rgb(239,183,178)',
-						'rgb(146,202,206)'
+						'rgb(146,202,206)',
+						'rgb(110,231,183)',
+						'rgb(216,180,254)',
+						'rgb(190,242,100)',
+						'rgb(216,180,254)',
+						'rgb(253,186,116)'
 					]
 				}
 			]

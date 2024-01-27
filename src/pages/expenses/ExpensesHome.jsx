@@ -9,7 +9,7 @@ function ExpensesHome() {
 	const expenses = useStore(expenseStore)
 
 	useEffect(() => {
-		loadExpensesFromApi()
+		if (expenses.length === 0) loadExpensesFromApi()
 	}, [])
 
 	return (
