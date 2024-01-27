@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Table from '../../components/table/Table'
 import ExpenseRow from '../../components/table/Expense'
 import PieChart from '../../components/PieChart'
-import { fetchExpenses } from '../../utils/ApiUtils'
-import { expenses } from '../../stores/expenseStore'
+import { expenses as expenseStore, loadExpensesFromApi } from '../../stores/expenseStore'
 import { buildExpensesChartData } from '../../utils/Utilities'
 import { useStore } from '@nanostores/react'
 
-const ExpensesHome = () => {
-	const [expenseList, setExpenseList] = useState([])
+function ExpensesHome() {
+	const expenses = useStore(expenseStore)
+	console.log(expenseStore)
+	console.log(expenses)
 
 	useEffect(() => {
-		fetchExpenses()
-		const $expenses = useStore(expenses)
-		setExpenseList($expenses)
+		loadExpensesFromApi()
 	}, [])
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
 			<Table isLoan={false}>
-				{expenseList && expenseList.map((expense) => <ExpenseRow expense={expense} />)}
+				{expenses && expenses.map((expense) => <ExpenseRow expense={expense} />)}
 			</Table>
 		</main>
 	)

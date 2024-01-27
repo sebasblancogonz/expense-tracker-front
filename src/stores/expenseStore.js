@@ -1,9 +1,10 @@
-import { atom } from "nanostores";
+import { map } from "nanostores";
+import { fetchExpenses } from "../utils/ApiUtils";
 
-export const expenses = atom([])
+export const expenses = map([])
 
 export function addExpenses(expenseList) {
-    expenses.set([...expenses.get(), expenseList])
+    expenses.set(expenseList)
 }
 
 export function removeExpense(expenseId) {
@@ -12,4 +13,8 @@ export function removeExpense(expenseId) {
 
 export function addExpense(expense) {
     expenses.get().push(expense)
+}
+
+export const loadExpensesFromApi = () => {
+    fetchExpenses()
 }

@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import Row from './body/Row.astro'
-import DateColumn from './body/DateColumn.astro'
-import Column from './body/Column.astro'
+import Row from './body/Row'
+import DateColumn from './body/DateColumn'
+import Column from './body/Column'
 import RemoveButton from './body/RemoveButton'
 import { getMonthDay, categoryEmoji, getMonthName } from '../../utils/Utilities'
-import Trash from '../../icons/Trash.astro'
+import Trash from '../../icons/Trash'
 
 const ExpenseRow = (props) => {
-	const { id, date, category, amount, description } = props
+	const { id, date, category, amount, description } = props.expense
 
 	return (
 		<Row id={id}>
