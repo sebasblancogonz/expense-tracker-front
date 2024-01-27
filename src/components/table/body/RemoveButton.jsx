@@ -1,4 +1,4 @@
-import { removeExpense } from "../../../utils/ApiUtils"
+import { removeExpense } from "../../../stores/expenseStore"
 
 const RemoveButton = (props) => {
     const handleRemove = (e) => {

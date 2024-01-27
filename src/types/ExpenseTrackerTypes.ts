@@ -31,7 +31,7 @@ export interface ChartData {
 	options: Option
 }
 
-interface Data {
+export interface Data {
 	labels: string[],
 	datasets: Dataset[],
 }

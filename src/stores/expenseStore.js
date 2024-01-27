@@ -1,5 +1,6 @@
 import { map } from "nanostores";
-import { fetchExpenses } from "../utils/ApiUtils";
+import { fetchExpenses as getExpensesFromAPI,
+removeExpense as removeExpenseFromAPI } from "../utils/ApiUtils";
 
 export const expenses = map([])
 
@@ -9,6 +10,7 @@ export function addExpenses(expenseList) {
 
 export function removeExpense(expenseId) {
     expenses.set(expenses.get().splice(expenses.get().findIndex(expense => expense.id === expenseId), 1))
+    removeExpenseFromAPI(expenseId)
 }
 
 export function addExpense(expense) {
@@ -16,5 +18,5 @@ export function addExpense(expense) {
 }
 
 export const loadExpensesFromApi = () => {
-    fetchExpenses()
+    getExpensesFromAPI()
 }

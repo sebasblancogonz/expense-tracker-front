@@ -1,21 +1,16 @@
-import {useEffect} from 'react'
-import {Chart } from 'chart.js'
+import { useState } from 'react'
+import { Chart as ChartJS, Legend, ArcElement, Tooltip } from 'chart.js'
+import { Pie } from 'react-chartjs-2'
+import { expenses as expensesStore } from '../stores/expenseStore'
+import { useStore } from '@nanostores/react'
+import { buildExpensesPie } from '../utils/Utilities'
+
+ChartJS.register(Legend, ArcElement, Tooltip)
 
 const PieChart = (props) => {
+	const expenses = useStore(expensesStore)
 
-    useEffect(() => {
-        var chrt = document.getElementById('chartId').getContext('2d') 
-        new Chart(chrt, props.data)
-    })    
-
-	return (
-		<>
-			<div className="mx-auto my-10">
-				<canvas id="chartId" aria-label="chart"></canvas>
-			</div>
-		</>
-	)
+	return <Pie height={'200px'} width={'200px'} data={buildExpensesPie(expenses)} />
 }
-
 
 export default PieChart

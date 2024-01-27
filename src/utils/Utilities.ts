@@ -1,4 +1,4 @@
-import type { Expense, ChartData } from '../types/ExpenseTrackerTypes'
+import type { Expense, Data } from '../types/ExpenseTrackerTypes'
 
 export function getMonthName(date: string) {
 	return new Date(date)
@@ -40,7 +40,7 @@ export function categoryEmoji(category: string) {
 	}
 }
 
-export function buildExpensesChartData(expenses: Expense[]): ChartData {
+export function buildExpensesPie(expenses: Expense[]): Data {
 	var data: Map<string, number> = new Map()
 	expenses.map((expense) => {
 		let category = expense.category
@@ -53,8 +53,6 @@ export function buildExpensesChartData(expenses: Expense[]): ChartData {
 	})
 
 	return {
-		type: 'pie',
-		data: {
 			labels: [...data.keys()],
 			datasets: [
 				{
@@ -64,9 +62,5 @@ export function buildExpensesChartData(expenses: Expense[]): ChartData {
 					backgroundColor: ['rgb(239,183,178)']
 				}
 			]
-		},
-		options: {
-			responsive: false
 		}
-	}
 }
