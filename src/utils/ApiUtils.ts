@@ -1,5 +1,7 @@
 import type { Expense } from '../types/ExpenseTrackerTypes'
-import { addExpenses, expenses } from '../stores/expenseStore'
+import { addExpenses } from '../stores/expenseStore'
+import { addLoan, addLoans } from '../stores/loanStore'
+
 
 export const apiUrl = () => {
 	return import.meta.env.PUBLIC_API_URL != null
@@ -11,6 +13,12 @@ export const fetchExpenses = async () => {
 	const response = await fetch(`${apiUrl()}/expenses`)
 	const data = await response.json()
 	addExpenses(data)
+}
+
+export const getLoans = async () => {
+	const response = await fetch(`${apiUrl()}/loans`)
+	const data = await response.json()
+	addLoans(data)
 }
 
 export const removeExpense = (id: string) => {
@@ -31,8 +39,9 @@ export const addExpense = (request: Expense) => {
 		.catch((err) => console.log(err))
 }
 
-export const getLoans = async () => {
-	const response = await fetch(`${apiUrl()}/loans`)
-	const data = await response.json()
-	return data
+export const removeLoan = (id: string) => {
+	fetch(`${apiUrl()}/loans/${id}`, {
+		method: 'DELETE'
+	})
+	.catch((err) => console.log(err))
 }

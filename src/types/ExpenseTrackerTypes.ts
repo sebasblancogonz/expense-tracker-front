@@ -1,5 +1,5 @@
 export interface Installment {
-	date: Date
+	date: string
 	amount: number
 	redeemed: number
 	totalRedeemed: number
