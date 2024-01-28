@@ -13,6 +13,7 @@ function LoansHome() {
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
+			<h1 class="mb-5 mt-5 text-center text-2xl text-chestnut-700">Your loans 🏦</h1>
 			<Table isLoan={true}>
 				{loans && loans.map((loan, index) => <LoanRow key={index} loan={loan} />)}
 			</Table>

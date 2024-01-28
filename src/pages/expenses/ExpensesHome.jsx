@@ -14,6 +14,7 @@ function ExpensesHome() {
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
+			<h1 class="mb-5 mt-5 text-center text-2xl text-chestnut-700">Your expenses 💸</h1>
 			{expenses && <PieChart />}
 			<Table isLoan={false}>
 				{expenses && expenses.map((expense, index) => <ExpenseRow key={index} expense={expense} />)}

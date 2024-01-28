@@ -29,6 +29,7 @@ export const removeExpense = (id: string) => {
 }
 
 export const addExpense = (request: Expense) => {
+	console.log(request)
 	fetch(`${apiUrl()}/expenses`, {
 		method: 'POST',
 		body: JSON.stringify(request),
