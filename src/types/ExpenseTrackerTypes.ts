@@ -18,28 +18,35 @@ export interface Loan {
 }
 
 export interface Expense {
-	id?: string,
+	id?: string
 	date: string
 	description: string
 	amount: number
 	category: string
+	parcipants?: Participant[]
+}
+
+export interface Participant {
+	name: string
+	amount: number
+	hasPaid: boolean
 }
 
 export interface ChartData {
-	type: string,
-	data: Data,
+	type: string
+	data: Data
 	options: Option
 }
 
 export interface Data {
-	labels: string[],
-	datasets: Dataset[],
+	labels: string[]
+	datasets: Dataset[]
 }
 
 interface Dataset {
-	label: string,
-	data: number[],
-	backgroundColor: string[],
+	label: string
+	data: number[]
+	backgroundColor: string[]
 	hoverOfsset: number
 }
 

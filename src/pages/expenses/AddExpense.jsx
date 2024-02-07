@@ -7,41 +7,67 @@ const AddExpense = () => {
 	const [participants, setParticipants] = useState(0)
 
 	const handleSubmit = (e) => {
+		console.log(e)
 		e.preventDefault()
 		const data = e.target
 		const request = {
 			description: data.description.value,
 			amount: data.amount.value,
 			date: formatDateToAPI(data.date.value),
-			category: data.category.value
+			category: data.category.value,
+			participants: buildParticipants(e)
 		}
+
+		console.log(request)
 		addExpense(request)
+	}
+
+	const buildParticipants = (e) => {
+		console.log(e)
+		let participants = []
+		let participantsNodes = e.target.participant
+		if (participantsNodes.length === 1) {
+			participants.push[
+				{
+					name: participantsNodes.value
+				}
+			]
+		} else if (participantsNodes.length > 1) {
+			participantsNodes.forEach((element) =>
+				participants.push({
+					name: element.value
+				})
+			)
+		}
+
+		return participants
 	}
 
 	const handleChange = () => {
 		setSharedExpense(!sharedExpense)
-		if(sharedExpense) {
+		if (sharedExpense) {
 			setParticipants(1)
-		} {
+		}
+		{
 			setParticipants(0)
 		}
 	}
 
 	const addParticipant = (e) => {
 		e.preventDefault()
-		setParticipants(participants+1)
+		setParticipants(participants + 1)
 	}
 
 	const removeParticipant = (e) => {
 		e.preventDefault()
-		setParticipants(participants-1)
+		setParticipants(participants - 1)
 	}
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
 			<div className="h-full w-full shadow-lg">
 				<h1 className="mb-5 mt-20 text-center text-2xl text-chestnut-700">Add a new expense 💸</h1>
-				<form className="mx-auto max-w-md" onSubmit={handleSubmit}>
+				<form className="mx-auto max-w-md" onSubmit={handleSubmit} autoComplete="off">
 					<div className="group relative z-0 mb-5 w-full">
 						<input
 							type="text"
@@ -126,17 +152,17 @@ const AddExpense = () => {
 								<div className="group relative z-0 mb-5 w-full">
 									<input
 										type="text"
-										name="description"
-										id="description"
+										name="participant"
+										id="participant"
 										className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-chestnut-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-chestnut-500"
 										placeholder=" "
 										required
 									/>
 									<label
-										htmlFor="description"
+										htmlFor="participant"
 										className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-chestnut-400 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-chestnut-600 dark:text-gray-400 peer-focus:dark:text-chestnut-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
 									>
-										Participant {idx+1}
+										Participant {idx + 1}
 									</label>
 								</div>
 							))}

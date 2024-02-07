@@ -12,6 +12,7 @@ export const apiUrl = () => {
 export const fetchExpenses = async () => {
 	const response = await fetch(`${apiUrl()}/expenses`)
 	const data = await response.json()
+	console.log(data)
 	addExpenses(data)
 }
 
