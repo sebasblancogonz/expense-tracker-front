@@ -48,27 +48,29 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 			data.set(expense.category, expense.amount)
 		} else {
 			let mapAmount = data.get(category)
-			data.set(expense.category, mapAmount != undefined ? +expense.amount : expense.amount)
+			data.set(expense.category, mapAmount != undefined ? mapAmount + expense.amount : expense.amount)
 		}
 	})
+	const config = {
+		labels: [...data.keys()],
+		datasets: [
+			{
+				label: 'Expenses chart',
+				data: [...data.values()],
+				hoverOfsset: 5,
+				backgroundColor: [
+					'rgb(239,183,178)',
+					'rgb(146,202,206)',
+					'rgb(110,231,183)',
+					'rgb(216,180,254)',
+					'rgb(190,242,100)',
+					'rgb(216,180,254)',
+					'rgb(253,186,116)'
+				]
+			}
+		]
+	}
 
-	return {
-			labels: [...data.keys()],
-			datasets: [
-				{
-					label: 'Expenses chart',
-					data: [...data.values()],
-					hoverOfsset: 5,
-					backgroundColor: [
-						'rgb(239,183,178)',
-						'rgb(146,202,206)',
-						'rgb(110,231,183)',
-						'rgb(216,180,254)',
-						'rgb(190,242,100)',
-						'rgb(216,180,254)',
-						'rgb(253,186,116)'
-					]
-				}
-			]
-		}
+	console.log("PieChart config", config)
+	return config
 }

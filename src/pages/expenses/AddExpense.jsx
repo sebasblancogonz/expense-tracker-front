@@ -117,7 +117,6 @@ const AddExpense = () => {
 							id="shared"
 							className="mb-5 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-chestnut-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-chestnut-500"
 							placeholder=" "
-							required
 						/>
 						<label className="ml-2 text-chestnut-400 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-chestnut-600 dark:text-gray-400 peer-focus:dark:text-chestnut-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4">
 							Is it a shared expense?
