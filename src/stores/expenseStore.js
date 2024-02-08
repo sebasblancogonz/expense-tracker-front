@@ -17,7 +17,7 @@ export function removeExpense(expenseId) {
 }
 
 export function addExpense(expense) {
-	expenses.get().push(expense)
+	expenses.set([...expenses.get(), expense])
 	addExpenseFromAPI(expense)
 }
 

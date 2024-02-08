@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Table from '../../components/table/Table'
 import ExpenseRow from '../../components/table/Expense'
 import PieChart from '../../components/PieChart'
+import AddExpense from './AddExpense'
 import { expenses as expenseStore, loadExpensesFromApi } from '../../stores/expenseStore'
 import { useStore } from '@nanostores/react'
 
@@ -15,9 +16,12 @@ function ExpensesHome() {
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
 			{expenses.length === 0 ? (
-				<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700">
-					You don't have any expense!
-				</h1>
+				<>
+					<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700">
+						You don't have any expense!
+					</h1>
+					<AddExpense />
+				</>
 			) : (
 				<>
 					<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700">Your expenses 💸</h1>

@@ -6,7 +6,7 @@ import { getMonthDay, categoryEmoji, getMonthName } from '../../utils/Utilities'
 import Trash from '../../icons/Trash'
 
 const ExpenseRow = (props) => {
-	const { id, date, category, amount, description } = props.expense
+	const { id, date, category, amount, description, participants } = props.expense
 
 	return (
 		<Row id={id}>
@@ -19,12 +19,32 @@ const ExpenseRow = (props) => {
 				</p>
 			</DateColumn>
 			<Column>
-				<div className="flex flex-row">
+				<div className="flex w-full flex-row">
 					<span className="pr-2">{categoryEmoji(category)}</span>
 					<p className="truncate font-light text-chestnut-600 dark:text-chestnut-300">
 						{description}
 					</p>
 				</div>
+				{participants && participants.length > 0 ? (
+					<>
+						<div className="flex w-full flex-row">
+							<span className="flex pr-2">👥</span>
+							<p className="truncate font-light text-chestnut-600 dark:text-chestnut-300">
+								Shared with:
+							</p>
+						</div>
+
+						{participants.map((participant) => (
+							<>
+								<p>{participant.name}</p>
+								<p>{participant.amount}€</p>
+								<p>{participant.hasPaid}</p>
+							</>
+						))}
+					</>
+				) : (
+					''
+				)}
 			</Column>
 			<Column>
 				<p className="text-end font-medium dark:text-chestnut-100">{amount}€</p>

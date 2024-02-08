@@ -71,6 +71,5 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 		]
 	}
 
-	console.log("PieChart config", config)
 	return config
 }

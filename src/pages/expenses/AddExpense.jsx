@@ -7,7 +7,6 @@ const AddExpense = () => {
 	const [participants, setParticipants] = useState(0)
 
 	const handleSubmit = (e) => {
-		console.log(e)
 		e.preventDefault()
 		const data = e.target
 		const request = {
@@ -18,37 +17,36 @@ const AddExpense = () => {
 			participants: buildParticipants(e)
 		}
 
-		console.log(request)
 		addExpense(request)
 	}
 
 	const buildParticipants = (e) => {
-		console.log(e)
 		let participants = []
 		let participantsNodes = e.target.participant
-		if (participantsNodes.length === 1) {
-			participants.push[
-				{
-					name: participantsNodes.value
-				}
-			]
-		} else if (participantsNodes.length > 1) {
-			participantsNodes.forEach((element) =>
-				participants.push({
-					name: element.value
-				})
-			)
+		if (participantsNodes !== undefined) {
+			if (participantsNodes.length === 1) {
+				participants.push[
+					{
+						name: participantsNodes.value
+					}
+				]
+			} else if (participantsNodes.length > 1) {
+				participantsNodes.forEach((element) =>
+					participants.push({
+						name: element.value
+					})
+				)
+			}
 		}
-
 		return participants
 	}
 
 	const handleChange = () => {
 		setSharedExpense(!sharedExpense)
+		
 		if (sharedExpense) {
 			setParticipants(1)
-		}
-		{
+		} else {
 			setParticipants(0)
 		}
 	}
