@@ -5,13 +5,20 @@ import PieChart from '../../components/PieChart'
 import AddExpense from './AddExpense'
 import { expenses as expenseStore, loadExpensesFromApi } from '../../stores/expenseStore'
 import { useStore } from '@nanostores/react'
+import { useState } from 'react'
 
 function ExpensesHome() {
 	const expenses = useStore(expenseStore)
+	const [showChart, setShowChart] = useState(false)
 
 	useEffect(() => {
 		if (expenses.length === 0) loadExpensesFromApi()
 	}, [])
+
+	const handleShowChart = (e) => {
+		e.preventDefault()
+		setShowChart(!showChart)
+	}
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
@@ -24,8 +31,13 @@ function ExpensesHome() {
 				</>
 			) : (
 				<>
-					<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700">Your expenses 💸</h1>
-					<PieChart />
+					<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700 dark:text-chestnut-300">Your expenses 💸</h1>
+
+					{showChart && <PieChart />}
+					<div className="mx-auto p-4 text-chestnut-700 dark:text-chestnut-300" onClick={handleShowChart}>
+						<button>{showChart ? 'Hide chart' : 'Show chart'}</button>
+					</div>
+					
 					<Table isLoan={false}>
 						{expenses &&
 							expenses.map((expense, index) => <ExpenseRow key={index} expense={expense} />)}

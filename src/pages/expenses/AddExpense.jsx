@@ -62,7 +62,7 @@ const AddExpense = () => {
 	}
 
 	return (
-		<main className="flex w-full flex-col [grid-area:main]">
+		<main className="flex w-full flex-col [grid-area:main] h-full">
 			<div className="h-full w-full shadow-lg">
 				<h1 className="mb-5 mt-20 text-center text-2xl text-chestnut-700">Add a new expense 💸</h1>
 				<form className="mx-auto max-w-md" onSubmit={handleSubmit} autoComplete="off">

@@ -1,6 +1,8 @@
 ---
 import LeftMenu from '../components/menu/LeftMenu.astro'
 import RightMenu from '../components/menu/RightMenu.astro'
+import { ViewTransitions } from 'astro:transitions'
+
 interface Props {
 	title: string,
 	menu?: string
@@ -18,12 +20,13 @@ const { title, menu } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body class="dark:bg-chestnut-950">
 		<div id="app" class="relative h-screen gap-2">
 			<LeftMenu menu={menu} />
 
-			<slot />
+			<slot/>
 			
 			<RightMenu />
 		</div>

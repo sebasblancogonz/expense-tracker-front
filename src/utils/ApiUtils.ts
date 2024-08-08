@@ -1,6 +1,7 @@
-import type { Expense } from '../types/ExpenseTrackerTypes'
+import type { Expense, Loan } from '../types/ExpenseTrackerTypes'
 import { addExpenses } from '../stores/expenseStore'
 import { addLoan, addLoans } from '../stores/loanStore'
+import { formatDate } from './Utilities'
 
 
 export const apiUrl = () => {
@@ -11,13 +12,20 @@ export const apiUrl = () => {
 
 export const fetchExpenses = async () => {
 	const response = await fetch(`${apiUrl()}/expenses`)
-	const data = await response.json()
+	const data: Expense[] = await response.json()
+	data.map(expense => {
+		expense.date = formatDate(expense.date).toString()
+	})
 	addExpenses(data)
 }
 
 export const getLoans = async () => {
 	const response = await fetch(`${apiUrl()}/loans`)
-	const data = await response.json()
+	const data: Loan[] = await response.json()
+	data.map(loan => {
+		loan.startDate = formatDate(loan.startDate).toString()
+		loan.finishDate = formatDate(loan.finishDate).toString()
+	})
 	addLoans(data)
 }
 
@@ -45,3 +53,4 @@ export const removeLoan = (id: string) => {
 	})
 	.catch((err) => console.log(err))
 }
+

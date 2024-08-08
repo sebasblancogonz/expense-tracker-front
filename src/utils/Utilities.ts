@@ -1,4 +1,5 @@
 import type { Expense, Data } from '../types/ExpenseTrackerTypes'
+import { DateTime } from 'luxon'
 
 export function getMonthName(date: string) {
 	return new Date(date)
@@ -12,6 +13,7 @@ export function getYear(date: string) {
 }
 
 export function getMonthDay(date: string) {
+	console.log(date)
 	return new Date(date).getDate()
 }
 
@@ -20,7 +22,7 @@ export function formatDateToAPI(date: string) {
 	let month: number = dateType.getMonth() + 1
 	let day: number = dateType.getDate()
 	let year: number = dateType.getFullYear()
-	return (month < 10 ? '0' + month : month) + '/' + (day < 10 ? '0' + day : day) + '/' + year
+	return (day < 10 ? '0' + day : day) + '/' + (month < 10 ? '0' + month : month) + '/' + year
 }
 
 export function categoryEmoji(category: string) {
@@ -48,7 +50,10 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 			data.set(expense.category, expense.amount)
 		} else {
 			let mapAmount = data.get(category)
-			data.set(expense.category, mapAmount != undefined ? mapAmount + expense.amount : expense.amount)
+			data.set(
+				expense.category,
+				mapAmount != undefined ? mapAmount + expense.amount : expense.amount
+			)
 		}
 	})
 	const config = {
@@ -72,4 +77,8 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 	}
 
 	return config
+}
+
+export function formatDate(date: string) {
+	return DateTime.fromFormat(date, "dd/MM/yyyy")
 }

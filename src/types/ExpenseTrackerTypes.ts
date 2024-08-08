@@ -1,3 +1,5 @@
+import type { DateTime } from "luxon"
+
 export interface Installment {
 	date: string
 	amount: number

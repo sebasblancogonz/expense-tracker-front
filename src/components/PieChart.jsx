@@ -10,7 +10,7 @@ const PieChart = () => {
 	const expenses = useStore(expensesStore)
 
 	return (
-		<div className="flex h-[400px] w-[400px] my-0 mx-auto">
+		<div className="flex h-[400px] w-[400px] my-0 mx-auto transition-all">
 			<Pie data={buildExpensesPie(expenses)} />
 		</div>
 	)
