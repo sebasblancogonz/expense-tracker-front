@@ -3,7 +3,6 @@ import { addExpenses } from '../stores/expenseStore'
 import { addLoan, addLoans } from '../stores/loanStore'
 import { formatDate } from './Utilities'
 
-
 export const apiUrl = () => {
 	return import.meta.env.PUBLIC_API_URL != null
 		? import.meta.env.PUBLIC_API_URL
@@ -13,7 +12,7 @@ export const apiUrl = () => {
 export const fetchExpenses = async () => {
 	const response = await fetch(`${apiUrl()}/expenses`)
 	const data: Expense[] = await response.json()
-	data.map(expense => {
+	data.map((expense) => {
 		expense.date = formatDate(expense.date).toString()
 	})
 	addExpenses(data)
@@ -22,7 +21,7 @@ export const fetchExpenses = async () => {
 export const getLoans = async () => {
 	const response = await fetch(`${apiUrl()}/loans`)
 	const data: Loan[] = await response.json()
-	data.map(loan => {
+	data.map((loan) => {
 		loan.startDate = formatDate(loan.startDate).toString()
 		loan.finishDate = formatDate(loan.finishDate).toString()
 	})
@@ -32,8 +31,7 @@ export const getLoans = async () => {
 export const removeExpense = (id: string) => {
 	fetch(`${apiUrl()}/expenses/${id}`, {
 		method: 'DELETE'
-	})
-	.catch((err) => console.log(err))
+	}).catch((err) => console.log(err))
 }
 
 export const addExpense = (request: Expense) => {
@@ -50,7 +48,5 @@ export const addExpense = (request: Expense) => {
 export const removeLoan = (id: string) => {
 	fetch(`${apiUrl()}/loans/${id}`, {
 		method: 'DELETE'
-	})
-	.catch((err) => console.log(err))
+	}).catch((err) => console.log(err))
 }
-

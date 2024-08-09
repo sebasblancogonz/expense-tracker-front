@@ -1,10 +1,9 @@
 ---
 import LeftMenu from '../components/menu/LeftMenu.astro'
 import RightMenu from '../components/menu/RightMenu.astro'
-import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
-	title: string,
+	title: string
 	menu?: string
 }
 
@@ -20,27 +19,25 @@ const { title, menu } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions />
 	</head>
 	<body class="dark:bg-chestnut-950">
 		<div id="app" class="relative h-screen gap-2">
 			<LeftMenu menu={menu} />
 
-			<slot/>
-			
+			<slot />
+
 			<RightMenu />
 		</div>
-		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
-
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"
+		></script>
 	</body>
 </html>
 
 <style>
 	#app {
 		display: grid;
-		grid-template-areas:
-			'aside-l main aside-r';
-		grid-template-columns: .5fr 3fr .5fr;
+		grid-template-areas: 'aside-l main aside-r';
+		grid-template-columns: 0.5fr 3fr 0.5fr;
 	}
 </style>
 <style is:global>
@@ -66,5 +63,4 @@ const { title, menu } = Astro.props
 			Courier New,
 			monospace;
 	}
-	
 </style>

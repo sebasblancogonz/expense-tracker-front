@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Expense Tracker">
-	<main class="text-chestnut-600 flex w-full flex-col [grid-area:main]">
-		<div class="w-full rounded-lg p-5 text-center shadow-lg">
+	<main class="flex w-full flex-col text-chestnut-600 [grid-area:main]">
+		<div class="w-full rounded-lg p-5 text-center">
 			<span class="">Upcomping expenses</span>
 		</div>
-		<div id="expenses" class="w-full  gap-2">
+		<div id="expenses" class="w-full gap-2">
 			<div class="mt-3 [grid-area:loans]">
-				<div class="w-full rounded-lg p-5 text-center shadow-lg">
+				<div class="w-full rounded-lg p-5 text-center">
 					<div class="w-full border-b border-gray-100 p-2"><span>Loans</span></div>
 
 					<table class="w-full">
@@ -32,8 +32,8 @@ import Layout from '../layouts/Layout.astro'
 				</div>
 			</div>
 			<div class="mt-3 [grid-area:expenses]">
-				<div class="w-full rounded-lg p-5 text-center shadow-lg">
-					<div class="w-full border-b border-gray-100 p-2"><span>Scheduled expenses</span></div>
+				<div class="w-full rounded-lg p-5 text-center">
+					<div class="w-full border-b border-gray-100 p-2"><span>Recurring expenses</span></div>
 
 					<table class="w-full text-left">
 						<tr>

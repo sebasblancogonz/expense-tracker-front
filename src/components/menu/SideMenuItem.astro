@@ -7,9 +7,10 @@ const { href } = Astro.props
 ---
 
 <li>
-    <a 
-    class="flex gap-4 items-center p-3 m-5 shadow-md dark:shadow-gray-900 rounded-lg text-chestnut-600 dark:text-chestnut-300 hover:bg-chestnut-200  active:bg-chestnut-300 dark:hover:bg-chestnut-400 dark:active:bg-chestnut-600 dark:bg-chestnut-900" 
-    href={href}>
-        <slot />
-    </a>
+	<a
+		class="m-5 flex w-[140px] items-center gap-4 rounded-lg p-3 text-chestnut-600 hover:bg-chestnut-50 active:bg-chestnut-100 dark:bg-chestnut-900 dark:text-chestnut-300 dark:shadow-gray-900 dark:hover:bg-chestnut-400 dark:active:bg-chestnut-600"
+		href={href}
+	>
+		<slot />
+	</a>
 </li>

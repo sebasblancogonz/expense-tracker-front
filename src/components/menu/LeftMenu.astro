@@ -4,6 +4,7 @@ import ExpenseIcon from '../../icons/Expense.astro'
 import LoanIcon from '../../icons/Loan.astro'
 import AsideMenuTemplate from './AsideMenuTemplate.astro'
 import HomeIcon from '../../icons/Home.astro'
+import BackIcon from '../../icons/Back.astro'
 
 interface Props {
 	menu?: string
@@ -15,10 +16,10 @@ const { menu } = Astro.props
 <aside class="flex flex-col [grid-area:aside-l]">
 	<AsideMenuTemplate>
 		{
-			menu === 'expenses' ? (
+			menu === 'expenses' && (
 				<ul>
 					<SideMenuItem href="/#">
-						<HomeIcon />
+						<BackIcon />
 						<span>Go back</span>
 					</SideMenuItem>
 					<SideMenuItem href="/expenses/add">
@@ -26,7 +27,30 @@ const { menu } = Astro.props
 						<span>Add expense</span>
 					</SideMenuItem>
 				</ul>
-			) : (
+			)
+		}
+		{
+			menu === 'addExpenses' && (
+				<ul>
+					<SideMenuItem href="/expenses">
+						<BackIcon />
+						<span>Go back</span>
+					</SideMenuItem>
+				</ul>
+			)
+		}
+		{
+			menu === 'loans' && (
+				<ul>
+					<SideMenuItem href="/#">
+						<BackIcon />
+						<span>Go back</span>
+					</SideMenuItem>
+				</ul>
+			)
+		}
+		{
+			menu === undefined && (
 				<ul>
 					<SideMenuItem href="/#">
 						<HomeIcon />

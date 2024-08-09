@@ -1,14 +1,18 @@
-import { map } from 'nanostores'
+import { persistentMap } from '@nanostores/persistent'
 import {
 	fetchExpenses as getExpensesFromAPI,
 	removeExpense as removeExpenseFromAPI,
 	addExpense as addExpenseFromAPI
 } from '../utils/ApiUtils'
 
-export const expenses = map([])
+export const expenses = persistentMap('expenses', [], {
+	encode: JSON.stringify,
+	decode: JSON.parse
+})
 
 export function addExpenses(expenseList) {
 	expenses.set(expenseList)
+	console.log('expenses from store', expenses.get())
 }
 
 export function removeExpense(expenseId) {
@@ -22,5 +26,9 @@ export function addExpense(expense) {
 }
 
 export const loadExpensesFromApi = () => {
-	getExpensesFromAPI()
+	if (expenses.get().length === 0) {
+		getExpensesFromAPI()
+	} else {
+		console.log('Expenses already loaded')
+	}
 }
