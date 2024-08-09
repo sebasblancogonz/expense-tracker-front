@@ -1,4 +1,3 @@
-'use client'
 import { useEffect } from 'react'
 import Table from '../../components/table/Table'
 import ExpenseRow from '../../components/table/Expense'
@@ -12,7 +11,6 @@ function ExpensesHome() {
 	const [showChart, setShowChart] = useState(false)
 
 	useEffect(() => {
-		console.log(expenses.value)
 		if (expenses.get().length === 0) loadExpensesFromApi()
 	}, [])
 
@@ -44,7 +42,10 @@ function ExpensesHome() {
 						<button>{showChart ? 'Hide chart' : 'Show chart'}</button>
 					</div>
 
-					<Table isLoan={false}></Table>
+					<Table isLoan={false}>
+					{expenses &&
+							expenses.get().map((expense, index) => <ExpenseRow key={index} expense={expense} />)}
+					</Table>
 				</>
 			)}
 		</main>

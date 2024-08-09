@@ -38,19 +38,17 @@ const ExpenseRow = (props) => {
 							<span className="flex pr-2">👥</span>
 							<p className="truncate font-light text-chestnut-600 dark:text-chestnut-300">
 								Shared with: &nbsp;
-								<p className="truncate font-bold">
-									{participants.map(
-										(participant, idx) =>
-											participant.name + (idx < participants.length - 1 ? ', ' : '')
-									)}
-								</p>
+								{participants.map(
+									(participant, idx) =>
+										participant.name + (idx < participants.length - 1 ? ', ' : '')
+								)}
 							</p>
 							<button onClick={toggleTableVisibility} className=" ml-auto text-blue-500">
 								{isTableVisible ? 'Hide details' : 'Show details'}
 							</button>
 						</div>
 						<div
-							className={`scrollbar-hide mt-5 overflow-x-auto transition-all duration-500 ${
+							className={`mt-5 overflow-x-auto transition-all duration-500 scrollbar-hide ${
 								isTableVisible ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
 							}`}
 						>
@@ -67,13 +65,13 @@ const ExpenseRow = (props) => {
 											scope="col"
 											className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider text-gray-500"
 										>
-											Paid
+											Amount
 										</th>
 										<th
 											scope="col"
 											className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider text-gray-500"
 										>
-											Amount
+											Paid
 										</th>
 									</tr>
 								</thead>
@@ -83,6 +81,11 @@ const ExpenseRow = (props) => {
 											<td className="whitespace-nowrap px-6 py-4">
 												<p className="truncate text-center font-light text-chestnut-600 dark:text-chestnut-300">
 													{participant.name}
+												</p>
+											</td>
+											<td className="whitespace-nowrap px-6 py-4">
+												<p className="text-center font-light  text-chestnut-600 dark:text-chestnut-300">
+													{participant.amount}€
 												</p>
 											</td>
 											<td className="whitespace-nowrap px-6 py-4">
@@ -113,11 +116,6 @@ const ExpenseRow = (props) => {
 														</svg>
 													)}
 												</div>
-											</td>
-											<td className="whitespace-nowrap px-6 py-4">
-												<p className="text-center font-light  text-chestnut-600 dark:text-chestnut-300">
-													{participant.amount}€
-												</p>
 											</td>
 										</tr>
 									))}

@@ -10,7 +10,7 @@ export function addLoans(loanList) {
 
 export function removeLoan(loanId) {
     loans.set(loans.get().filter((loan) => loan.id !== loanId))
-    removeExpenseFromAPI(loanId)
+    removeLoanFromAPI(loanId)
 }
 
 export function addLoan(loan) {

@@ -1,26 +1,28 @@
-import { persistentMap } from '@nanostores/persistent'
+import { persistentAtom } from '@nanostores/persistent'
 import {
 	fetchExpenses as getExpensesFromAPI,
 	removeExpense as removeExpenseFromAPI,
 	addExpense as addExpenseFromAPI
 } from '../utils/ApiUtils'
+import type { Expense } from '../types/ExpenseTrackerTypes'
 
-export const expenses = persistentMap('expenses', [], {
+export const expenses = persistentAtom<Expense[]>('expenses', [], {
 	encode: JSON.stringify,
 	decode: JSON.parse
 })
 
-export function addExpenses(expenseList) {
+export function addExpenses(expenseList: Expense[]) {
+	console.log(expenseList)
 	expenses.set(expenseList)
 	console.log('expenses from store', expenses.get())
 }
 
-export function removeExpense(expenseId) {
+export function removeExpense(expenseId: string) {
 	expenses.set(expenses.get().filter((expense) => expense.id !== expenseId))
 	removeExpenseFromAPI(expenseId)
 }
 
-export function addExpense(expense) {
+export function addExpense(expense: Expense) {
 	expenses.set([...expenses.get(), expense])
 	addExpenseFromAPI(expense)
 }
