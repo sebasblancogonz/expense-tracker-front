@@ -1,4 +1,4 @@
-import type { DateTime } from "luxon"
+import type { DateTime } from 'luxon'
 
 export interface Installment {
 	date: string
@@ -10,12 +10,13 @@ export interface Installment {
 }
 
 export interface Loan {
+	id?: string
 	startDate: string
 	finishDate: string
 	description: string
 	totalAmount: number
 	interest: number
-	bank?: string
+	entity: string
 	installments?: Installment[]
 }
 

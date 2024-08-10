@@ -15,7 +15,6 @@ export const fetchExpenses = async () => {
 	data.map((expense) => {
 		expense.date = formatDate(expense.date).toString()
 	})
-	console.log(data)
 	addExpenses(data)
 }
 

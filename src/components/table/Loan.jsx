@@ -1,10 +1,12 @@
-import Row from "./body/Row"
-import DateColumn from "./body/DateColumn"
-import Column from "./body/Column"
-import { getMonthDay, getMonthName, getYear } from "../../utils/Utilities"
+import Row from './body/Row'
+import DateColumn from './body/DateColumn'
+import Column from './body/Column'
+import RemoveButton from './body/RemoveButton'
+import Trash from '../../icons/Trash'
+import { getMonthDay, getMonthName, getYear } from '../../utils/Utilities'
 
 const LoanRow = (props) => {
-	const { startDate, finishDate, description, totalAmount, interest, bank } = props.loan
+	const { id, startDate, finishDate, description, totalAmount, interest, entity } = props.loan
 
 	return (
 		<Row>
@@ -32,7 +34,9 @@ const LoanRow = (props) => {
 			</DateColumn>
 			<Column>
 				<div className="flex flex-row">
-					<p className="truncate font-light text-chestnut-600 dark:text-chestnut-300">{description}</p>
+					<p className="truncate font-light text-chestnut-600 dark:text-chestnut-300">
+						{description}
+					</p>
 				</div>
 			</Column>
 
@@ -43,7 +47,12 @@ const LoanRow = (props) => {
 				<p className="text-end font-medium dark:text-chestnut-100">{interest}%</p>
 			</Column>
 			<Column>
-				<p className="text-end font-medium dark:text-chestnut-100">{bank}</p>
+				<p className="text-end font-medium dark:text-chestnut-100">{entity}</p>
+			</Column>
+			<Column>
+				<RemoveButton id={id}>
+					<Trash />
+				</RemoveButton>
 			</Column>
 		</Row>
 	)

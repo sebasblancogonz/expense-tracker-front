@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 const TableHead = (props) => {
 	const { isLoan } = props
 	return (
@@ -24,7 +22,9 @@ const TableHead = (props) => {
 						<th className="w-1/6 border-r-[1px] pb-2 pl-1 pt-2 text-xs font-normal text-zinc-700">
 							Interest
 						</th>
-						<th className="w-1/6 pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700">Bank</th>
+						<th className=" w-1/6 border-r-[1px] pb-2 pl-2 pt-2 text-xs font-normal text-zinc-700">
+							Entity
+						</th>
 					</>
 				)}
 				<th

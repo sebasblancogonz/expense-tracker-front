@@ -12,9 +12,7 @@ export const expenses = persistentAtom<Expense[]>('expenses', [], {
 })
 
 export function addExpenses(expenseList: Expense[]) {
-	console.log(expenseList)
 	expenses.set(expenseList)
-	console.log('expenses from store', expenses.get())
 }
 
 export function removeExpense(expenseId: string) {

@@ -13,7 +13,6 @@ export function getYear(date: string) {
 }
 
 export function getMonthDay(date: string) {
-	console.log(date)
 	return new Date(date).getDate()
 }
 
@@ -80,5 +79,5 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 }
 
 export function formatDate(date: string) {
-	return DateTime.fromFormat(date, "dd/MM/yyyy")
+	return DateTime.fromFormat(date, 'dd/MM/yyyy')
 }

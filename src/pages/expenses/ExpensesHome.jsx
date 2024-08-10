@@ -3,15 +3,19 @@ import Table from '../../components/table/Table'
 import ExpenseRow from '../../components/table/Expense'
 import PieChart from '../../components/PieChart'
 import AddExpense from './AddExpense'
-import { expenses, loadExpensesFromApi } from '../../stores/expenseStore'
-import { useStore } from '@nanostores/react'
+import { expenses as expensesStore, loadExpensesFromApi } from '../../stores/expenseStore'
 import { useState } from 'react'
 
 function ExpensesHome() {
 	const [showChart, setShowChart] = useState(false)
+	const [expenses, setExpenses] = useState([])
 
 	useEffect(() => {
-		if (expenses.get().length === 0) loadExpensesFromApi()
+		if (expensesStore.get().length === 0) {
+			setExpenses(loadExpensesFromApi())
+		} else {
+			setExpenses(expensesStore.get())
+		}
 	}, [])
 
 	const handleShowChart = (e) => {
@@ -21,7 +25,7 @@ function ExpensesHome() {
 
 	return (
 		<main className="flex w-full flex-col [grid-area:main]">
-			{expenses.get().length === 0 ? (
+			{expenses.length === 0 ? (
 				<>
 					<h1 className="mb-5 mt-5 text-center text-2xl text-chestnut-700">
 						You don't have any expense!
@@ -43,8 +47,8 @@ function ExpensesHome() {
 					</div>
 
 					<Table isLoan={false}>
-					{expenses &&
-							expenses.get().map((expense, index) => <ExpenseRow key={index} expense={expense} />)}
+						{expenses &&
+							expenses.map((expense, index) => <ExpenseRow key={index} expense={expense} />)}
 					</Table>
 				</>
 			)}
