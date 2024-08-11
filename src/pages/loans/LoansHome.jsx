@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react'
 import Table from '../../components/table/Table'
 import { loans as loanStore, loadLoansFromApi } from '../../stores/loanStore'
 import LoanRow from '../../components/table/Loan'
+import { useStore } from '@nanostores/react'
 
 function LoansHome() {
-	const [loans, setLoans] = useState([])
+	const loans = useStore(loanStore)
 
 	useEffect(() => {
-		if (loanStore.get().length === 0) {
+		if (loanStore.length === 0) {
 			setLoans(loadLoansFromApi())
-		} else {
-			setLoans(loanStore.get())
 		}
 	}, [])
 

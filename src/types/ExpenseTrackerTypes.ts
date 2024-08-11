@@ -1,5 +1,3 @@
-import type { DateTime } from 'luxon'
-
 export interface Installment {
 	date: string
 	amount: number
@@ -39,6 +37,11 @@ export interface ChartData {
 	type: string
 	data: Data
 	options: Option
+}
+
+export enum ExpenseType {
+	EXPENSE = 'EXPENSE',
+	LOAN = 'LOAN'
 }
 
 export interface Data {

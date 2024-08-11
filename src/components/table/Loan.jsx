@@ -4,6 +4,7 @@ import Column from './body/Column'
 import RemoveButton from './body/RemoveButton'
 import Trash from '../../icons/Trash'
 import { getMonthDay, getMonthName, getYear } from '../../utils/Utilities'
+import { ExpenseType } from '../../types/ExpenseTrackerTypes'
 
 const LoanRow = (props) => {
 	const { id, startDate, finishDate, description, totalAmount, interest, entity } = props.loan
@@ -50,7 +51,7 @@ const LoanRow = (props) => {
 				<p className="text-end font-medium dark:text-chestnut-100">{entity}</p>
 			</Column>
 			<Column>
-				<RemoveButton id={id}>
+				<RemoveButton id={id} expenseType={ExpenseType.LOAN}>
 					<Trash />
 				</RemoveButton>
 			</Column>

@@ -5,16 +5,15 @@ import PieChart from '../../components/PieChart'
 import AddExpense from './AddExpense'
 import { expenses as expensesStore, loadExpensesFromApi } from '../../stores/expenseStore'
 import { useState } from 'react'
+import { useStore } from '@nanostores/react'
 
 function ExpensesHome() {
 	const [showChart, setShowChart] = useState(false)
-	const [expenses, setExpenses] = useState([])
+	const expenses = useStore(expensesStore)
 
 	useEffect(() => {
-		if (expensesStore.get().length === 0) {
-			setExpenses(loadExpensesFromApi())
-		} else {
-			setExpenses(expensesStore.get())
+		if (expenses.length === 0) {
+			loadExpensesFromApi()
 		}
 	}, [])
 

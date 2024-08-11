@@ -5,6 +5,7 @@ import Column from './body/Column'
 import RemoveButton from './body/RemoveButton'
 import { getMonthDay, categoryEmoji, getMonthName } from '../../utils/Utilities'
 import Trash from '../../icons/Trash'
+import { ExpenseType } from '../../types/ExpenseTrackerTypes'
 
 const ExpenseRow = (props) => {
 	const [isTableVisible, setIsTableVisible] = useState(false)
@@ -131,7 +132,7 @@ const ExpenseRow = (props) => {
 				<p className="text-end font-medium dark:text-chestnut-100">{amount}€</p>
 			</Column>
 			<Column>
-				<RemoveButton id={id}>
+				<RemoveButton id={id} expenseType={ExpenseType.EXPENSE}>
 					<Trash />
 				</RemoveButton>
 			</Column>
