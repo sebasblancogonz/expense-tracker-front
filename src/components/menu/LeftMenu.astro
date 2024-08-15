@@ -46,6 +46,20 @@ const { menu } = Astro.props
 						<BackIcon />
 						<span>Go back</span>
 					</SideMenuItem>
+					<SideMenuItem href="/loans/add">
+						<ExpenseIcon />
+						<span>Add loan</span>
+					</SideMenuItem>
+				</ul>
+			)
+		}
+		{
+			menu === 'addLoan' && (
+				<ul>
+					<SideMenuItem href="/loans">
+						<BackIcon />
+						<span>Go back</span>
+					</SideMenuItem>
 				</ul>
 			)
 		}

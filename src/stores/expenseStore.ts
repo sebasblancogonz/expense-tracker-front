@@ -5,6 +5,7 @@ import {
 	addExpense as addExpenseFromAPI
 } from '../utils/ApiUtils'
 import type { Expense } from '../types/ExpenseTrackerTypes'
+import { formatDate } from '../utils/Utilities'
 
 export const expenses = persistentAtom<Expense[]>('expenses', [], {
 	encode: JSON.stringify,
@@ -18,17 +19,33 @@ export function addExpenses(expenseList: Expense[]) {
 export function removeExpense(expenseId: string) {
 	expenses.set(expenses.get().filter((expense) => expense.id !== expenseId))
 	removeExpenseFromAPI(expenseId)
+		.then((response) => {
+			if (response.ok) {
+				expenses.set(expenses.get().filter((expense) => expense.id !== expenseId))
+			}
+		})
+		.catch((err) => console.log(err))
 }
 
 export function addExpense(expense: Expense) {
-	expenses.set([...expenses.get(), expense])
 	addExpenseFromAPI(expense)
+		.then((response) => {
+			if (response.ok) {
+				expenses.set([...expenses.get(), expense])
+			}
+		})
+		.catch((err) => console.log(err))
 }
 
 export const loadExpensesFromApi = () => {
-	if (expenses.get().length === 0) {
-		getExpensesFromAPI()
-	} else {
-		console.log('Expenses already loaded')
-	}
+	getExpensesFromAPI().then((response) => {
+		if (response.ok) {
+			response.json().then((data: Expense[]) => {
+				data.map((expense) => {
+					expense.date = formatDate(expense.date)
+				})
+				addExpenses(data)
+			})
+		}
+	})
 }

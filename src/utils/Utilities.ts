@@ -17,11 +17,8 @@ export function getMonthDay(date: string) {
 }
 
 export function formatDateToAPI(date: string) {
-	let dateType: Date = new Date(date)
-	let month: number = dateType.getMonth() + 1
-	let day: number = dateType.getDate()
-	let year: number = dateType.getFullYear()
-	return (day < 10 ? '0' + day : day) + '/' + (month < 10 ? '0' + month : month) + '/' + year
+	console.log(DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat('dd/MM/yyyy').toString())
+	return DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat('dd/MM/yyyy').toString()
 }
 
 export function categoryEmoji(category: string) {
@@ -79,5 +76,6 @@ export function buildExpensesPie(expenses: Expense[]): Data {
 }
 
 export function formatDate(date: string) {
-	return DateTime.fromFormat(date, 'dd/MM/yyyy')
+	console.log(date)
+	return DateTime.fromFormat(date, 'dd/MM/yyyy').toString()
 }

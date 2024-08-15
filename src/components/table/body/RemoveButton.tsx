@@ -21,7 +21,6 @@ const RemoveButton = (props: RemoveButtonProps) => {
 			default:
 				break
 		}
-		removeExpense(props.id)
 	}
 
 	return (
